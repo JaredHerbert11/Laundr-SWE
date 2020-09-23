@@ -9,3 +9,6 @@ https://docs.google.com/document/d/1AqbQIeYfIrT8lq-tqxD0FmT2emqdyF7drSlN9Brak00/
 
 ## Resources
 Stripe API: https://stripe.com/docs/api
+
+## Inspiration Site
+https://simplychocolate.dk/product/grainy-sue/
