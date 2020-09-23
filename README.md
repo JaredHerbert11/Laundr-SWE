@@ -9,6 +9,12 @@ https://docs.google.com/document/d/1AqbQIeYfIrT8lq-tqxD0FmT2emqdyF7drSlN9Brak00/
 
 ## Resources
 Stripe API: https://stripe.com/docs/api
+- Would like us to enable Apply Pay and G-Pay
 
 ## Inspiration Site
 https://simplychocolate.dk/product/grainy-sue/
+
+## Notes:
+- 6 Variations of 1 product, different fragrances
+- Granted us free rein to choose product priority
+- Independent from current laundr.io website
