@@ -13,6 +13,7 @@ Stripe API: https://stripe.com/docs/api
 
 ## Inspiration Site
 https://simplychocolate.dk/product/grainy-sue/
+- Client does not like vertical navigation elements on desktop, prefers condensed menu and cart icon (with cart quantity)
 
 ## Notes:
 - 6 Variations of 1 product, different fragrances
