@@ -17,5 +17,6 @@ https://simplychocolate.dk/product/grainy-sue/
 
 ## Notes:
 - 6 Variations of 1 product, different fragrances
+  - Whatever we do for one variation, we just need to replicate
 - Granted us free rein to choose product priority
 - Independent from current laundr.io website
