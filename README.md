@@ -11,6 +11,9 @@ https://docs.google.com/document/d/1AqbQIeYfIrT8lq-tqxD0FmT2emqdyF7drSlN9Brak00/
 Stripe API: https://stripe.com/docs/api
 - Would like us to enable Apply Pay and G-Pay
 
+## Laundr Style Guide and Information
+- https://docs.google.com/document/d/1aKdAcTXXuTgRZB6bGEbD3_wEIFR-Rfv2fo3PkBXNmu0/edit
+
 ## Inspiration Site
 https://simplychocolate.dk/
 - Client does not like vertical navigation elements on desktop, prefers condensed menu and cart icon (with cart quantity)
