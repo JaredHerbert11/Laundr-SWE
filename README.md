@@ -12,7 +12,7 @@ Stripe API: https://stripe.com/docs/api
 - Would like us to enable Apply Pay and G-Pay
 
 ## Inspiration Site
-https://simplychocolate.dk/product/grainy-sue/
+https://simplychocolate.dk/
 - Client does not like vertical navigation elements on desktop, prefers condensed menu and cart icon (with cart quantity)
 
 ## Notes:
