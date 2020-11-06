@@ -9,7 +9,7 @@ import logo from '../laundrassets/logos/logo2.png'
 const NavBar = () => {
     return(
     
-        <div>
+        <div className= "nav">
             <Grid container spacing={3}>
                 <Grid item xs>
                     <img id="logo" src={logo}></img>

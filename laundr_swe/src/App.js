@@ -12,7 +12,7 @@ import Navbar from "./components/navbar.component"
 //<Navbar style={{zIndex:2001}}/>
 function App() {
   return (
-    <div className="App">
+    <div className="App"> 
     <Router>
       <Route path='/' component={LandingPage} />
     </Router>
