@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import './App.css';
+import { StickyContainer, Sticky } from 'react-sticky'
+import LandingPage from "./components/landingpage.component"
+import Navbar from "./components/navbar.component"
 
+
+/*<Router>
+<Route path='/' component={LandingPage} />
+</Router>*/
+//
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <Router>
+      <Navbar/>
+      <Route path='/' component={LandingPage} />
+    </Router>
   );
 }
 
