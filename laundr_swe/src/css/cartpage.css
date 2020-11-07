@@ -1,6 +1,6 @@
 .bg {
-    background:linear-gradient(rgb(216, 249, 255),transparent);
-    background-color: rgb(161, 235, 255);
+    background:linear-gradient(rgb(230, 248, 252),transparent);
+    background-color: rgb(143, 228, 252);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@
     justify-content: space-between;
 }
 .removeCart{
-    color:red;
+    color:rgb(253, 82, 82);
     margin-top:1em;
     cursor: pointer;
 }
@@ -51,7 +51,7 @@
 
 
 .incrementDecrement{
-    background-color: #eee;
+    background-color: rgb(255, 255, 255);
     border: 1px solid #999;
     
     color: black;

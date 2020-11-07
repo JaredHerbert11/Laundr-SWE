@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
-import {clearCart} from '../controllers/cartFunctions'
 import {clearOneItem} from '../controllers/cartFunctions'
 import {updateItem} from '../controllers/cartFunctions'
 import {useStatelocal} from '../controllers/cartFunctions'
@@ -81,7 +80,7 @@ const CartPage = (props) => {
 
     return (
         <div className="bg">
-            <div className="ui floating message" style={{minWidth : "700px"}}>
+            <div className="ui floating message" style={{marginTop : "50px", minWidth : "850", backgroundColor : "white"}}>
                 <div class="header">
                     <div className="top">
                         <span> Your Cart </span>
@@ -104,9 +103,9 @@ const CartPage = (props) => {
                     </table>
             </div>
             <div className="row">
-                <button onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee</button>
-                <button onClick={() => updateItem(cart, setCart, TeaTree, 1)}>TeaTree</button>
-                <button onClick={() => updateItem(cart, setCart, Air, 1)}>Air</button>
+                <button class="ui button brown" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee</button>
+                <button class="ui button green" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, TeaTree, 1)}>TeaTree</button>
+                <button class="ui button white" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, Air, 1)}>Air</button>
             </div>
         </div>
     )
