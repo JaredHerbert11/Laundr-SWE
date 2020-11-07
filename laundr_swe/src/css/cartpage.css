@@ -15,7 +15,14 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.removeCart{
+    color:red;
+    margin-top:1em;
+    cursor: pointer;
+}
+.trash{
+    cursor: pointer;
+}
 .column{
     display: flex;
     flex-direction: column;
