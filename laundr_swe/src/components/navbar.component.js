@@ -4,12 +4,11 @@ import '../css/navbar.css'
 import Grid from '@material-ui/core/Grid';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import logo from '../laundrassets/logos/logo2.png'
-
+import {Link} from 'react-router-dom';
 
 const NavBar = () => {
     return(
-    
-        <div className= "nav">
+        <div className='Navbar'>
             <Grid container spacing={3}>
                 <Grid item xs>
                     <img id="logo" src={logo}></img>
@@ -17,10 +16,10 @@ const NavBar = () => {
                 <Grid item xs>
                    
                 </Grid>
-                <Grid item xs style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                <Grid item xs style={{display: "flex", justifyContent: "center", alignItems: "center", paddingRight: 0}}>
                         <div className="nav">
-                            <a href="default.asp">Home </a>
-                            <a href="#home" ><ShoppingCartIcon color="black"  /></a>
+                            <Link to="/home">Home </Link>
+                            <Link to="/cart" ><ShoppingCartIcon color="black"  /></Link>
                         </div>
                 </Grid>
             </Grid>

@@ -104,3 +104,106 @@ img {
     margin-right: auto;
     width: 50%;
   }
+
+.bombDesc1 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 25%;
+    font-size: 20px;
+}
+
+.bombDesc2 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 127%;
+    font-size: 20px;
+}
+
+.bombDesc3 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 229%;
+    font-size: 20px;
+}
+
+.bombDesc4 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 331%;
+    font-size: 20px;
+}
+
+.bombDesc5 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 433%;
+    font-size: 20px;
+}
+
+.bombDesc6 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 535%;
+    font-size: 20px;
+}
+
+.bombName1 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 20%
+}
+
+.bombName2 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 122%
+}
+
+.bombName3 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 224%
+}
+
+.bombName4 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 326%
+}
+
+.bombName5 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 428%
+}
+
+.bombName6 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 530%
+}
+
+ul {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 25%;
+    font-size: 20px;
+}
+
+li {
+    background: none;
+    right: 10%;
+}
