@@ -17,21 +17,3 @@
   width:200px;
   height: 80px;
 }
-.topnav {
-  display: inline;
-  background-color: #FFFFFF;
-  overflow: hidden;
-  font-family: calmer;
-  font-weight: 300;
-}
-.topnav a {
-   vertical-align: middle;
-   float: right;
-   color: black;
-   text-align: center;
-   padding: 14px 16px;
-   font-size: 20px;
-   margin: 5px;
-   margin-top: 1em;
-}
- 
