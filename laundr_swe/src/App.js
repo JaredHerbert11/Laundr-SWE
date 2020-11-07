@@ -17,8 +17,8 @@ function App() {
     
     <Router>
       <Navbar/>
-      {/* <Route path='/' component={LandingPage} /> */}
-      <ProductPage/>
+      <Route path='/' component={LandingPage} />
+      {/* <ProductPage/> */}
     </Router>
   );
 }
