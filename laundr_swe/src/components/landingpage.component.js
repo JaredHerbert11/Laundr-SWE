@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
-import { Text, View} from "react-native";
 import axios from 'axios'
 import '../css/landingpage.css'
 const LandingPage = (props) => {
     const colorArray = ["#ff5656", "#f4ea9c", "#5b5b5b", "#8dcfdd",  "#e2cea3", "#48c47e"]
+
     window.addEventListener('scroll', () => {
-        const colorbar = document.querySelector('.color-bar')
-        let secNumber = Math.floor(window.pageYOffset/window.innerHeight);
-        console.log(secNumber);
-        colorbar.style.backgroundColor = colorArray[secNumber];
+        if (window.location.href == 'http://localhost:3000/') {
+            const colorbar = document.querySelector('.color-bar');
+            let secNumber = Math.floor(window.pageYOffset/window.innerHeight);
+            console.log(secNumber);
+            colorbar.style.backgroundColor = colorArray[secNumber];
+        }
     })
 
     return (
@@ -28,7 +30,7 @@ const LandingPage = (props) => {
                     <br/>
                     Price: $18.99
                 </p>
-                <div class="mockup-image mimg1"></div>
+                <Link to="/product/watermelon-cucumber"><div class="mockup-image mimg1"></div></Link>
             </section>
             <section class="bg-image img2">
                 <h1 className="bombName2">White Gardenia</h1>
@@ -43,7 +45,7 @@ const LandingPage = (props) => {
                     <br/>
                     Price: $18.99
                 </p>
-                <div class="mockup-image mimg2"></div>
+                <Link to="/product/white-gardenia"><div class="mockup-image mimg2"></div></Link>
             </section>
             <section class="bg-image img3">
                 <h1 className="bombName3">Mahogany Teakwood</h1>
@@ -58,7 +60,7 @@ const LandingPage = (props) => {
                     <br/>
                     Price: $18.99
                 </p>
-                <div class="mockup-image mimg3"></div>
+                <Link to="/product/mahogany-teakwood"><div class="mockup-image mimg3"></div></Link>
             </section>
             <section class="bg-image img4">
                 <h1 className="bombName4">Fresh Air</h1>
@@ -73,7 +75,7 @@ const LandingPage = (props) => {
                     <br/>
                     Price: $18.99
                 </p>
-                <div class="mockup-image mimg4"></div>
+                <Link to="/product/fresh-air"><div class="mockup-image mimg4"></div></Link>
             </section>
             <section class="bg-image img5">
                 <h1 className="bombName5">Coffee Vanilla</h1>
@@ -88,7 +90,7 @@ const LandingPage = (props) => {
                     <br/>
                     Price: $18.99
                 </p>
-                <div class="mockup-image mimg5"></div>
+                <Link to="/product/coffee-vanilla"><div class="mockup-image mimg5"></div></Link>
             </section>
             <section class="bg-image img6">
                 <h1 className="bombName6">Eucalyptus Tea Tree </h1>
@@ -103,7 +105,7 @@ const LandingPage = (props) => {
                     <br/>
                     Price: $18.99
                 </p>
-                <div class="mockup-image mimg6"></div>
+                <Link to="/product/eucalyptus-tea-tree"><div class="mockup-image mimg6"></div></Link>
             </section>
         </body>
     )

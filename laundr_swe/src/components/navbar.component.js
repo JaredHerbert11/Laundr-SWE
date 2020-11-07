@@ -11,14 +11,14 @@ const NavBar = () => {
         <div className='Navbar'>
             <Grid container spacing={3}>
                 <Grid item xs>
-                    <img id="logo" src={logo}></img>
+                    <Link to="/"><img id="logo" src={logo}></img></Link>
                 </Grid>
                 <Grid item xs>
                    
                 </Grid>
                 <Grid item xs style={{display: "flex", justifyContent: "center", alignItems: "center", paddingRight: 0}}>
                         <div className="nav">
-                            <Link to="/home">Home </Link>
+                            <Link to="/">Home </Link>
                             <Link to="/cart" ><ShoppingCartIcon color="black"  /></Link>
                         </div>
                 </Grid>
