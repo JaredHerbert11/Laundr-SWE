@@ -4,12 +4,12 @@ import axios from 'axios'
 import '../css/landingpage.css'
 const LandingPage = (props) => {
     const colorArray = ["#ff5656", "#f4ea9c", "#5b5b5b", "#8dcfdd",  "#e2cea3", "#48c47e"]
-    // window.addEventListener('scroll', () => {
-    //     const colorbar = document.querySelector('.color-bar')
-    //     let secNumber = Math.floor(window.pageYOffset/window.innerHeight);
-    //     console.log(secNumber);
-    //     colorbar.style.backgroundColor = colorArray[secNumber];
-    // })
+    window.addEventListener('scroll', () => {
+        const colorbar = document.querySelector('.color-bar')
+        let secNumber = Math.floor(window.pageYOffset/window.innerHeight);
+        console.log(secNumber);
+        colorbar.style.backgroundColor = colorArray[secNumber];
+    })
 
     return (
         <body>
