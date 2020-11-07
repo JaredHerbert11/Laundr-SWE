@@ -1,8 +1,35 @@
 import React, { useState } from 'react';
 import 'semantic-ui-css/semantic.min.css'
-import '../css/cart.css'
+import {clearCart} from '../controllers/cartFunctions'
+import {clearOneItem} from '../controllers/cartFunctions'
+import {updateItem} from '../controllers/cartFunctions'
+import {useStatelocal} from '../controllers/cartFunctions'
+import '../css/cartpage.css'
 
-function cartpage(props){
+
+//replace hard coded entries with CRUD calls
+let Scuba = {
+    id : "Scuba",
+    quantity : 0
+}
+
+let Tuba = {
+    id : "Tuba",
+    quantity : 0
+}
+
+let Cuba = {
+    id : "Cuba",
+    quantity : 0
+}
+
+const CartPage = (props) => {  
+    let [cart, setCart] = useStatelocal();
+    console.log(cart);
+    let test = 0;
+    if (typeof cart[2] != 'undefined'){
+        test = cart[2].quantity;
+    }
     return (
         <div className="bg">
             <div className="ui floating message" style={{minWidth : "700px"}}>
@@ -29,7 +56,11 @@ function cartpage(props){
                                             <i class="dollar sign icon" style={{fontSize : "15px"}}></i>
                                             <p style={{fontSize : "25px"}}> 3.50 </p>
                                         </div>
-                                        
+                                        <div>
+                                            <div className="incrementDecrement decrButton" onClick={() => updateItem(cart, setCart, Scuba, -1)}> - </div>
+                                            <div className="incrementDecrement incrDecrQuantity">{test}</div>
+                                            <div className="incrementDecrement incrButton" onClick={() => updateItem(cart, setCart, Scuba, 1)}> + </div>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -44,5 +75,4 @@ function cartpage(props){
         </div>
     )
 }
-
-export default cartpage;
+export default CartPage;

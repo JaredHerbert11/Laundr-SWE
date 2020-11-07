@@ -1,0 +1,187 @@
+@font-face{
+    font-family: Roboto;
+    src: ('../fonts/Roboto-Black.ttf');
+}
+html {
+    scroll-snap-type: y mandatory;
+}
+section {
+    height: 100vh;
+    
+    width: 100vw;
+
+    scroll-snap-align: start;
+}
+.bg-image {
+    /* Full height */
+    height: 50%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 66vh 66vh;
+    z-index: -1000;
+}
+
+/* Images used */
+.img1 { background-image: url(../laundrassets/tessalations/watermelon_pattern.png); 
+        height: 100vh; }
+.img2 { background-image: url(../laundrassets/tessalations/gardenia_pattern.png); 
+        height: 100vh; }
+.img3 { background-image: url(../laundrassets/tessalations/mahogany_pattern.png); 
+    height: 100vh; }
+.img4 { background-image: url(../laundrassets/tessalations/freshair_pattern.png); 
+    height: 100vh; }
+.img5 { background-image: url(../laundrassets/tessalations/vanilla_pattern.png); 
+    height: 100vh; }
+.img6 { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
+    height: 100vh; }
+
+.mockup-image {
+    /* Full height */
+    height: 50%;
+    position: relative;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-size: 110vh;
+    z-index: 1000;
+    background-repeat: no-repeat;
+}
+
+.mimg1 { background-image: url(../laundrassets/mockups/watermelonMockup.png); 
+    height: 100vh; }
+.mimg2 { background-image: url(../laundrassets/mockups/gardeniaMockup.png); 
+    height: 100vh; }
+.mimg3 { background-image: url(../laundrassets/mockups/mahoganymockup.png); 
+height: 100vh; }
+.mimg4 { background-image: url(../laundrassets/mockups/freshair_asset.png); 
+height: 100vh; }
+.mimg5 { background-image: url(../laundrassets/mockups/coffeeMockup.png); 
+height: 100vh; }
+.mimg6 { background-image: url(../laundrassets/mockups/eucalyptusMockup.png); 
+height: 100vh; }
+
+
+.color-bar {
+    position: fixed;
+    width: 100vw;
+    height: 50vh;
+    background-color: #ff5656;
+    top: 0;
+    z-index: 0;
+}
+
+img {
+    position: relative;
+    z-index: 1000;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+.bombDesc1 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 25%;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombDesc2 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 127%;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombDesc3 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 229%;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombDesc4 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 331%;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombDesc5 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 433%;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombDesc6 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 535%;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombName1 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 20%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombName2 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 122%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombName3 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 224%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombName4 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 326%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombName5 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 428%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bombName6 {
+    position: absolute;
+    z-index: 2000;
+    padding-left: 50px;
+    top: 530%;
+    font-family: 'Roboto', sans-serif;
+}
+li {
+    background: none;
+    right: 10%;
+}
