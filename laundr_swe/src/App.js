@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import {React, useState} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -30,8 +31,18 @@ function App() {
         <Route path='/' component={LandingPage} />
       </Switch>
       </ScrollToTop>
+=======
+import React from 'react';
+import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import CartPage from "./components/cartpage.component"
+
+function App() {
+  return (
+    <Router>
+      <Route path='/' component={CartPage} />
+>>>>>>> Stashed changes
     </Router>
   );
 }
-
 export default App;
