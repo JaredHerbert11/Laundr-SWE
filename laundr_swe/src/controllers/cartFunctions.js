@@ -43,9 +43,9 @@ function updateItem(cart, setCart, item, amount){
     //adjust the quantity of the item
     exister.quantity += amount;
 
-    //Checks if item quantity has dropped to zero, if so then remove from cart
-    if (exister.quantity <= 0){
-      cartCopy = cartCopy.filter(it => it.id !== item.id);
+    //Checks if item quantity has dropped to zero, if so tset to 0
+    if (exister.quantity < 0){
+      exister.quantity = 0;
     }
 
     //If the cart was emptied through removing an item, clear the cart and local storage
