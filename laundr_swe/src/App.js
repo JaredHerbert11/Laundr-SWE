@@ -12,6 +12,7 @@ import FreshAir from './components/productpage-freshair';
 import Vanilla from './components/productpage-vanilla';
 import Eucalyptus from './components/productpage-eucalyptus';
 import ScrollToTop from './components/scroll-to-top.component';
+import CartPage from './components/cartPage.component';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path='/product/fresh-air' component={FreshAir} />
         <Route path='/product/coffee-vanilla' component={Vanilla} />
         <Route path='/product/eucalyptus-tea-tree' component={Eucalyptus} />
+        <Route path='/cart' component={CartPage} />
         <Route path='/' component={LandingPage} />
       </Switch>
       </ScrollToTop>
