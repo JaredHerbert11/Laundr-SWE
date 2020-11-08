@@ -8,7 +8,7 @@ import freshAirImg from "../laundrassets/mockups/freshair_asset.png";
 import watermelonImg from "../laundrassets/mockups/watermelonMockup.png";
 import gardeniaImg from "../laundrassets/mockups/gardeniaMockup.png";
 import teakwoodImg from "../laundrassets/mockups/mahoganymockup.png";
-import CartItem from "./cartIem.component";
+import CartItem from "./cartItem.component";
 import '../css/cartpage.css';
 
 
