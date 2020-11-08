@@ -28,6 +28,10 @@
     top: 20%;
     font-size: 20px;
     transform: rotate(90deg);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 .description{
     padding: 2em;
@@ -69,3 +73,5 @@
  }
 .eucalyptus { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
  }
+
+ 
