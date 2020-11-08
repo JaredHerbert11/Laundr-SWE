@@ -6,9 +6,6 @@ import {useStatelocal} from '../controllers/cartFunctions'
 import coffeeImg from "../laundrassets/mockups/coffeeMockup.png"
 import teaTreeImg from "../laundrassets/mockups/eucalyptusMockup.png"
 import freshAirImg from "../laundrassets/mockups/freshair_asset.png"
-import watermelonimg from "../laundrassets/mockups/watermelonMockup.png"
-import gardeniaimg from "../laundrassets/mockups/gardeniaMockup.png"
-import mahoganyimg from "../laundrassets/mockups/mahoganymockup.png"
 import '../css/cartpage.css'
 
 
@@ -30,24 +27,6 @@ let Air = {
     quantity : 0,
     picture:freshAirImg,
     price:18.99
-}
-let Watermelon = {
-    id : "Watermelon Cucumber",
-    quantity : 0,
-    picture: watermelonimg,
-    price : 18.99
-}
-let Gardenia = {
-    id : "White Gardenia",
-    quantity : 0,
-    picture : gardeniaimg,
-    price : 18.99
-}
-let Mahogany = {
-    id : "Mahogany Teakwood",
-    quantity : 0,
-    picture : mahoganyimg,
-    price : 18.99
 }
 
 
@@ -124,12 +103,9 @@ const CartPage = (props) => {
                     </table>
             </div>
             <div className="row">
-                <button class="ui button brown" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee Vanilla</button>
-                <button class="ui button green" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, TeaTree, 1)}>Eucalyptus Tea Tree</button>
-                <button class="ui button white" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, Air, 1)}>Fresh Air</button>
-                <button class="ui button brown" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, Mahogany, 1)}>Mahogany Teakwood</button>
-                <button class="ui button red" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, Watermelon, 1)}>Watermeon Cucumber</button>
-                <button class="ui button white" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, Gardenia, 1)}>White Gardenia</button>
+                <button class="ui button brown" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee</button>
+                <button class="ui button green" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, TeaTree, 1)}>TeaTree</button>
+                <button class="ui button white" style={{marginBottom : "30px"}} onClick={() => updateItem(cart, setCart, Air, 1)}>Air</button>
             </div>
         </div>
     )
