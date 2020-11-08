@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import 'semantic-ui-css/semantic.min.css'
-import {clearCart} from '../controllers/cartFunctions'
-import {clearOneItem} from '../controllers/cartFunctions'
-import {updateItem} from '../controllers/cartFunctions'
-import {useStatelocal} from '../controllers/cartFunctions'
-import coffeeImg from "../laundrassets/mockups/coffeeMockup.png"
-import teaTreeImg from "../laundrassets/mockups/eucalyptusMockup.png"
-import freshAirImg from "../laundrassets/mockups/freshair_asset.png"
-import '../css/cartpage.css'
+import React from 'react';
+import 'semantic-ui-css/semantic.min.css';
+import {updateItem} from '../controllers/cartFunctions';
+import {useStatelocal} from '../controllers/cartFunctions';
+import coffeeImg from "../laundrassets/mockups/coffeeMockup.png";
+import teaTreeImg from "../laundrassets/mockups/eucalyptusMockup.png";
+import freshAirImg from "../laundrassets/mockups/freshair_asset.png";
+import watermelonImg from "../laundrassets/mockups/watermelonMockup.png";
+import gardeniaImg from "../laundrassets/mockups/gardeniaMockup.png";
+import teakwoodImg from "../laundrassets/mockups/mahoganymockup.png";
+import CartItem from "./cartIem.component";
+import '../css/cartpage.css';
 
 
 //replace hard coded entries with CRUD calls
@@ -29,13 +31,31 @@ let Air = {
     picture:freshAirImg,
     price:18.99
 }
+let Watermelon = {
+    id : "Watermelon Cucumber",
+    quantity : 0,
+    picture:watermelonImg,
+    price:18.99
+}
+let Gardenia = {
+    id : "White Gardenia",
+    quantity : 0,
+    picture:gardeniaImg,
+    price:18.99
+}
+let Teakwood = {
+    id : "Mahogany Teakwood",
+    quantity : 0,
+    picture:teakwoodImg,
+    price:18.99
+}
 
 
 const CartPage = (props) => {  
     let [cart, setCart] = useStatelocal();
-    
     let cartItems = [];
     let totalPrice = 0;
+    //iterate over each item in the cart to calculate price and add CartItem component to array in order to be returned w the page
     for(let i = 0; i < cart.length;i++){
         let item = {
             id:"",
@@ -46,35 +66,14 @@ const CartPage = (props) => {
         if (typeof cart[i] != 'undefined'){
             item.id=cart[i].id;
             item.quantity=cart[i].quantity;
+            //replace object population w crud calls
             item.picture = cart[i].picture;
             item.price = cart[i].price;
             totalPrice += item.price*item.quantity;
         }
 
         cartItems.push(
-            <tr class="">
-                <td class="">
-                    <div className="item">
-                        <img src={item.picture} className="image"></img>
-                        <div className="column">
-                            <p style={{fontSize : "30px"}}> {item.id} </p>
-                            <div className="row" style={{fontSize : "18px"}} onClick={() => clearOneItem(cart, setCart, item)}>
-                                <i class="trash icon" style={{fontSize : "20px"}}></i>
-                                <p class="removeCart" > Remove from Cart</p>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <i class="dollar sign icon" style={{fontSize : "15px"}}></i>
-                            <p style={{fontSize : "25px"}}> {item.price.toFixed(2)} </p>
-                        </div>
-                        <div>
-                            <div className="incrementDecrement decrButton" onClick={() => updateItem(cart, setCart, item, -1)}> - </div>
-                            <div className="incrementDecrement incrDecrQuantity">{item.quantity}</div>
-                            <div className="incrementDecrement incrButton" onClick={() => updateItem(cart, setCart, item, 1)}> + </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+            <CartItem item={item} cart={cart} setCart={setCart}></CartItem>
         );
     }
 
@@ -86,8 +85,6 @@ const CartPage = (props) => {
                     <div className="top">
                         <span> Your Cart </span>
                         <span> Proceed to Checkout </span>
-                        
-
                     </div>
                 </div>
                     <table class="ui celled collapsing very basic table" style={{minWidth : "700px"}}>
@@ -99,7 +96,6 @@ const CartPage = (props) => {
                                 <p style={{textAlign:"right"}}>${totalPrice.toFixed(2)}</p>
                             </td>
                             </tr>
-                            
                         </tbody>
                     </table>
             </div>
@@ -107,6 +103,9 @@ const CartPage = (props) => {
                 <button onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee</button>
                 <button onClick={() => updateItem(cart, setCart, TeaTree, 1)}>TeaTree</button>
                 <button onClick={() => updateItem(cart, setCart, Air, 1)}>Air</button>
+                <button onClick={() => updateItem(cart, setCart, Watermelon, 1)}>Watermelon</button>
+                <button onClick={() => updateItem(cart, setCart, Gardenia, 1)}>Gardenia</button>
+                <button onClick={() => updateItem(cart, setCart, Teakwood, 1)}>Teakwood</button>
             </div>
         </div>
     )
