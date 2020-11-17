@@ -1,8 +1,0 @@
-[
-	{ "name": "Watermelon Cucumber", "description": "A sweet, cool and refreshing smell for brightening up your day. Great for picnic blankets, overalls, and being in a generally good mood.", "type": "Bombs", "scent": "Watermelon Cucumber", "hexcode": "#ff5656", "imagepath": [] },
-	{ "name": "White Gardenia"     , "description": "A sweet and floral perfume with relaxing notes, best used after a carefree frolic through a field of wildflowers."                       , "type": "Bombs", "scent": "White Gardenia"     , "hexcode": "#f4ea9c", "imagepath": [] },
-	{ "name": "Mahogany Teakwood"  , "description": "A great everyday alternative to cologne, or for a getaway to a log cabin hidden deep in a snowy forest."                                 , "type": "Bombs", "scent": "Mahogany Teakwood"  , "hexcode": "#5b5b5b", "imagepath": [] },
-	{ "name": "Fresh Air"          , "description": "A soft, cottony fragrance that smells even cleaner than clean. Great for leaping face-first into a gigantic, fluffy comforter."          , "type": "Bombs", "scent": "Fresh Air"          , "hexcode": "#8dcfdd", "imagepath": [] },
-	{ "name": "Coffee Vanilla"     , "description": "Smells like the steam rising off of a hot vanilla latte. Great for sitting in an armchair in a quaint neighborhood cafe."                , "type": "Bombs", "scent": "Coffee Vanilla"     , "hexcode": "#e2cea3", "imagepath": [] },
-    { "name": "Eucalyptus Tea Tree", "description": "A natural scent inspired by popular aromatherapy oil mixtures. Great for towels, bath robes, and having a “me day.”"                     , "type": "Bombs", "scent": "Eucalyptus Tea Tree", "hexcode": "#48c47e", "imagepath": [] }
-]
