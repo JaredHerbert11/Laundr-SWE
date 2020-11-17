@@ -1,0 +1,77 @@
+
+@font-face{
+    font-family: calmer;
+    src: ('../fonts/Calmer Regular.ttf');
+}
+@font-face{
+    font-family: Roboto;
+    src: ('../fonts/Roboto-Black.ttf');
+}
+.watermelon{
+    background-image: url(../laundrassets/tessalations/watermelon_pattern.png); 
+    background-repeat: repeat-x;
+}
+.prodName{
+    font-family: calmer;
+    font-size: 19vh;
+    color: #01C9E1;
+    padding: 0.5em;
+    margin: 0;
+    padding-bottom: 1em;
+    font-weight: bold;
+    text-shadow: 2px 2px black;
+}
+.bag1{
+    position: absolute;
+    z-index: 2000;
+    left: -15vh;
+    top: 20%;
+    font-size: 20px;
+    transform: rotate(90deg);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.description{
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+
+}
+.textBlock{
+    margin: 1.5em;
+}
+.textBlock p, li{
+    font-size: 20px;
+}
+.textBlock h2{
+    font-size: 40px;
+    color: #01C9E1;
+}
+.prod-des{
+    line-height: 1.6;
+}
+.cart{
+    display: flex;
+    float: right;
+    align-items: center;
+    justify-content: center;
+}
+.cart-price{
+    margin: 15px;
+}
+.gardenia { background-image: url(../laundrassets/tessalations/gardenia_pattern.png); 
+ }
+.mahogany { background-image: url(../laundrassets/tessalations/mahogany_pattern.png); 
+ }
+.freshair { background-image: url(../laundrassets/tessalations/freshair_pattern.png); 
+  background-size:50%;
+}
+.vanilla { background-image: url(../laundrassets/tessalations/vanilla_pattern.png); 
+ }
+.eucalyptus { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
+ }
+
+ 
