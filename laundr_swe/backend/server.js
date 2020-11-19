@@ -42,4 +42,8 @@ app.all('/*', (req, res) => {
         
 });
 
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static('../build'));
+}
+
 app.listen(config.port, () => console.log(`App now listening on port ${config.port}`));

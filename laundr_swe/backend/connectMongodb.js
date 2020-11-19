@@ -8,7 +8,7 @@ import mongoose from "mongoose";
 const connectToDatabase = () => {
   const temp = config.db.uri;
   mongoose
-    .connect(temp, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(process.env.MONGODB_URI || temp, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch((error) => console.error(error));
   mongoose.set("useCreateIndex", true);
   mongoose.set("useFindAndModify", false);
