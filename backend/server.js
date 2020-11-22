@@ -29,9 +29,6 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-/* serve static files - see http://expressjs.com/en/starter/static-files.html */
-app.use('/', express.static('./../../client'));
-
 
 app.use('/api/laundrProducts/', laundrProductRouter);
 

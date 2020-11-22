@@ -1,2 +1,1 @@
-web: npm start
-back: node backend/server
+web: node backend/server
