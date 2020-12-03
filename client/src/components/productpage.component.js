@@ -1,3 +1,4 @@
+import React from 'react'
 import "../css/productpage.css"
 import watermelon from "../laundrassets/mockups/watermelonMockup.png";
 import gardenia from "../laundrassets/mockups/gardeniaMockup.png";
