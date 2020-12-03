@@ -34,10 +34,6 @@ app.all('/*', (req, res) => {
    res.statusCode === 404 ? res.send('Sorry, information not available') : res.sendFile(path.resolve('./client/index.html'))   
 });
 
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('../build'));
-}
-
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, '../../client/build')));
