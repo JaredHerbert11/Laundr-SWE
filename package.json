@@ -2,6 +2,16 @@
   "name": "laundr_swe",
   "type": "module",
   "version": "0.1.0",
+  "scripts": {
+    "test": "mocha server/tests",
+    "install-all": "concurrently \"npm install\" \"cd client && npm install\"",
+    "client": "cd client && npm start",
+    "server": "nodemon server/server.js",
+    "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run start\"",
+    "build": "cd client && npm run build",
+    "start": "node server/server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
   "engines": {
     "node": "12.x"
   },
@@ -15,8 +25,10 @@
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.3",
+    "concurrently": "^5.3.0",
     "express": "^4.17.1",
     "material-ui": "^0.20.2",
+    "mocha": "^8.2.1",
     "mongoose": "^5.10.15",
     "morgan": "^1.10.0",
     "node-fetch": "^2.6.1",
@@ -30,15 +42,9 @@
     "react-router-dom": "^5.2.0",
     "react-router-native": "^5.2.0",
     "react-scripts": "^4.0.0",
-    "react-sticky": "^6.0.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build-app": "npm run build",
-    "install-client": "npm i"
+    "react-sticky": "^6.0.3",
+    "should": "^13.2.3",
+    "supertest": "^6.0.1"
   },
   "eslintConfig": {
     "extends": "react-app"

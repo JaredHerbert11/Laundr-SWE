@@ -19,7 +19,6 @@ export const create = async (req, res) => {
 
 /* Show the current Laundr Products */
 export const read = async (req, res) => {
-  
   let id = req.params.productId;
   await LaundrProducts.findById(id)
     .then((laundrProduct) => {

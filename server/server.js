@@ -13,7 +13,6 @@ const db = connectToDatabase().on(
  );
  db.once("open", () => {
    console.log("Successfully connected to mongoose database!");
-   
  });
 
 //initialize app
@@ -29,9 +28,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-
 app.use('/api/laundrProducts/', laundrProductRouter);
-
 
 app.all('/*', (req, res) => {
 
@@ -43,4 +40,6 @@ if(process.env.NODE_ENV === 'production') {
   app.use(express.static('../build'));
 }
 
-app.listen(config.port, () => console.log(`App now listening on port ${config.port}`));
+const port = process.env.PORT || config.port;
+
+app.listen(port, () => console.log(`App now listening on port ${port}`));
