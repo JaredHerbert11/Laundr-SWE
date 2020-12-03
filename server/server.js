@@ -5,7 +5,9 @@ import bodyParser from 'body-parser';
 import config from './config/config.js'
 import laundrProductRouter from './routes/products.js';
 import {connectToDatabase} from './connectMongodb.js';
-import dotenv from 'dotenv' 
+import dotenv from 'dotenv'
+
+const __dirname = path.resolve();
 
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
