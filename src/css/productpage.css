@@ -1,4 +1,6 @@
-
+html{
+    scroll-behavior: smooth;
+}
 @font-face{
     font-family: calmer;
     src: ('../fonts/Calmer Regular.ttf');
@@ -7,13 +9,13 @@
     font-family: Roboto;
     src: ('../fonts/Roboto-Black.ttf');
 }
-.watermelon{
+.watermelon-p{
     background-image: url(../laundrassets/tessalations/watermelon_pattern.png); 
     background-repeat: repeat-x;
 }
-.prodName{
+.prodName-p{
     font-family: calmer;
-    font-size: 19vh;
+    font-size: 8vmax;
     color: #01C9E1;
     padding: 0.5em;
     margin: 0;
@@ -21,57 +23,74 @@
     font-weight: bold;
     text-shadow: 2px 2px black;
 }
-.bag1{
+.bag1-p{
     position: absolute;
     z-index: 2000;
-    left: -15vh;
-    top: 20%;
+    left: 25vh;
+    top: 12%;
     font-size: 20px;
     transform: rotate(90deg);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
 }
-.description{
+.bomb-p{
+    position: fixed;
+    z-index: 2000;
+    height: 40%;
+    width: 40%;
+    top:25%;
+    left:30%;
+
+}
+.description-p{
     padding: 2em;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: 'Roboto', sans-serif;
+    background-color: white;
 
 }
-.textBlock{
+.textBlock-p{
     margin: 1.5em;
+    padding-left: 1em;
 }
-.textBlock p, li{
+.textBlock-p p, li{
     font-size: 20px;
 }
-.textBlock h2{
+.textBlock-p h2{
     font-size: 40px;
     color: #01C9E1;
 }
-.prod-des{
+.prod-des-p{
     line-height: 1.6;
+    
 }
-.cart{
+.cart-p{
     display: flex;
     float: right;
     align-items: center;
     justify-content: center;
 }
-.cart-price{
+.cart-price-p{
     margin: 15px;
 }
-.gardenia { background-image: url(../laundrassets/tessalations/gardenia_pattern.png); 
+.gardenia-p { background-image: url(../laundrassets/tessalations/gardenia_pattern.png); 
  }
-.mahogany { background-image: url(../laundrassets/tessalations/mahogany_pattern.png); 
+.mahogany-p { background-image: url(../laundrassets/tessalations/mahogany_pattern.png); 
  }
-.freshair { background-image: url(../laundrassets/tessalations/freshair_pattern.png); 
+.freshair-p { background-image: url(../laundrassets/tessalations/freshair_pattern.png); 
   background-size:50%;
 }
-.vanilla { background-image: url(../laundrassets/tessalations/vanilla_pattern.png); 
+.vanilla-p { background-image: url(../laundrassets/tessalations/vanilla_pattern.png); 
  }
-.eucalyptus { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
+.eucalyptus-p { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
  }
 
- 
+ @media (max-width: 575.98px) { 
+    .bomb-p{
+        top:27.2vh;
+    }
+    .bag1-p{
+        left: 24.8vw;
+        top:23.2vh;
+    }
+ }

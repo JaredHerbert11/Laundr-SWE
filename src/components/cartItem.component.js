@@ -9,7 +9,7 @@ const CartItem = (props) => {
         <tr>
             <td>
                 <div className="item">
-                    <img src={props.item.picture} alt={props.item.id + " picture"} className="image"></img>
+                    <img src={props.item.picture} alt={props.item.id + " picture"} className="cartImage"></img>
                     <div className="column">
                         <p style={{fontSize : "30px"}}> {props.item.id} </p>
                         <div className="row" style={{fontSize : "18px"}} onClick={() => clearOneItem(props.cart, props.setCart, props.item)}>

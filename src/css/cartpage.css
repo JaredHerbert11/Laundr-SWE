@@ -56,7 +56,7 @@
     justify-content: space-around;
 }
 
-.image {
+.cartImage {
     width: 150px;				/* width of image (px or % or auto) */
     height: auto;				/* height of image (px or % or auto) */
 }
