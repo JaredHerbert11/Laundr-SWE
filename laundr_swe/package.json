@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@stripe/react-stripe-js": "^1.0.0",
+    "@stripe/stripe-js": "^1.0.0",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "material-ui": "^0.20.2",
@@ -20,10 +22,15 @@
     "react-router-dom": "^5.2.0",
     "react-router-native": "^5.2.0",
     "react-scripts": "^4.0.0",
-    "react-sticky": "^6.0.3"
+    "react-sticky": "^6.0.3",
+    "concurrently": "4.1.2",
+    "express": "^4.17.1",
+    "stripe": "^8.126.0"
   },
+  "homepage": "http://localhost:3000/checkout",
+  "proxy": "http://localhost:4242",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"node server.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

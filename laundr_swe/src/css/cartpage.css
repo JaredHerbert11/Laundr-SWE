@@ -1,6 +1,8 @@
 .bg {
-    background:linear-gradient(rgb(216, 249, 255),transparent);
+    background:linear-gradient(rgb(255, 255, 255),transparent);
     background-color: rgb(161, 235, 255);
+    margin-top: 5vh;
+    min-width: 120vh;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -39,6 +41,11 @@
     margin-top:1em;
     cursor: pointer;
 }
+
+.checkout{
+    cursor: pointer;
+}
+
 .trash{
     cursor: pointer;
 }
