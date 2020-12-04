@@ -8,12 +8,15 @@ import watermelonImg from "../laundrassets/mockups/watermelonMockup.png";
 import gardeniaImg from "../laundrassets/mockups/gardeniaMockup.png";
 import teakwoodImg from "../laundrassets/mockups/mahoganymockup.png";
 import CartItem from "./cartItem.component";
+import {getAllProducts} from '../controllers/productFunctions';
 import '../css/cartpage.css';
 
+//Tried getting all products and saving them to array but wouldnt take it
+//let retrievedProducts = getAllProducts();
 
 //replace hard coded entries with CRUD calls
 let Coffee = {
-    id : "Coffee Vanilla",
+    id : "Watermelon Cucumber",
     quantity : 0,
     picture:coffeeImg,
     price:18.99
@@ -54,6 +57,9 @@ const CartPage = (props) => {
     let [cart, setCart] = useStatelocal();
     let cartItems = [];
     let totalPrice = 0;
+
+   //let array = getAllProducts();
+
     //iterate over each item in the cart to calculate price and add CartItem component to array in order to be returned w the page
     for(let i = 0; i < cart.length;i++){
         let item = {
@@ -99,12 +105,18 @@ const CartPage = (props) => {
                     </table>
             </div>
             <div className="row">
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee</button>
+            <button className="devButton" onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee</button>
                 <button className="devButton" onClick={() => updateItem(cart, setCart, TeaTree, 1)}>TeaTree</button>
                 <button className="devButton" onClick={() => updateItem(cart, setCart, Air, 1)}>Air</button>
                 <button className="devButton" onClick={() => updateItem(cart, setCart, Watermelon, 1)}>Watermelon</button>
                 <button className="devButton" onClick={() => updateItem(cart, setCart, Gardenia, 1)}>Gardenia</button>
                 <button className="devButton" onClick={() => updateItem(cart, setCart, Teakwood, 1)}>Teakwood</button>
+                {/* <button className="devButton" onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee</button>
+                <button className="devButton" onClick={() => updateItem(cart, setCart, TeaTree, 1)}>TeaTree</button>
+                <button className="devButton" onClick={() => updateItem(cart, setCart, Air, 1)}>Air</button>
+                <button className="devButton" onClick={() => updateItem(cart, setCart, Watermelon, 1)}>Watermelon</button>
+                <button className="devButton" onClick={() => updateItem(cart, setCart, Gardenia, 1)}>Gardenia</button>
+                <button className="devButton" onClick={() => updateItem(cart, setCart, Teakwood, 1)}>Teakwood</button> */}
 
             </div>
         </div>
