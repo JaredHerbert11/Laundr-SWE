@@ -1,4 +1,6 @@
-
+html{
+    scroll-behavior: smooth;
+}
 @font-face{
     font-family: calmer;
     src: ('../fonts/Calmer Regular.ttf');
@@ -13,7 +15,7 @@
 }
 .prodName{
     font-family: calmer;
-    font-size: 19vh;
+    font-size: 8vmax;
     color: #01C9E1;
     padding: 0.5em;
     margin: 0;
@@ -24,20 +26,36 @@
 .bag1{
     position: absolute;
     z-index: 2000;
-    left: -15vh;
-    top: 20%;
+    left: 25vh;
+    top: 12%;
     font-size: 20px;
     transform: rotate(90deg);
+}
+.bomb{
+    position: fixed;
+    z-index: 2000;
+    height: 40%;
+    width: 40%;
+    top:25%;
+    left:30%;
+
+}
+.moved{
+    transform: translateX(50%);
+    
 }
 .description{
     padding: 2em;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: 'Roboto', sans-serif;
+    background-color: white;
 
 }
 .textBlock{
     margin: 1.5em;
+    padding-left: 1em;
 }
 .textBlock p, li{
     font-size: 20px;
@@ -48,6 +66,7 @@
 }
 .prod-des{
     line-height: 1.6;
+    
 }
 .cart{
     display: flex;
@@ -68,4 +87,14 @@
 .vanilla { background-image: url(../laundrassets/tessalations/vanilla_pattern.png); 
  }
 .eucalyptus { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
+ }
+
+ @media (max-width: 575.98px) { 
+    .bomb{
+        top:27.2vh;
+    }
+    .bag1{
+        left: 24.8vw;
+        top:23.2vh;
+    }
  }
