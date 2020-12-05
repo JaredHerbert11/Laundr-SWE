@@ -18,38 +18,26 @@ import { getData } from "../data/data.js";
 let Coffee = {
     id : "Vanilla Coffee",
     quantity : 0,
-    picture:coffeeImg,
-    price:18.99
 }
 let TeaTree = {
     id : "Eucalyptus Tea Tree",
     quantity : 0,
-    picture:teaTreeImg,
-    price:18.99
 }
 let Air = {
     id : "Fresh Air",
     quantity : 0,
-    picture:freshAirImg,
-    price:18.99
 }
 let Watermelon = {
     id : "Watermelon Cucumber",
     quantity : 0,
-    picture:watermelonImg,
-    price:18.99
 }
 let Gardenia = {
     id : "White Gardenia",
     quantity : 0,
-    picture:gardeniaImg,
-    price:18.99
 }
 let Teakwood = {
     id : "Mahogany Teakwood",
     quantity : 0,
-    picture:teakwoodImg,
-    price:18.99
 }
 
 
@@ -59,7 +47,7 @@ const CartPage = (props) => {
     let totalPrice = 0;
 
     const [data] = useState(getData());
-
+    
     //iterate over each item in the cart to calculate price and add CartItem component to array in order to be returned w the page
     for(let i = 0; i < cart.length;i++){
         let item = {
@@ -70,10 +58,12 @@ const CartPage = (props) => {
         }
         if (typeof cart[i] != 'undefined'){
             item.id=cart[i].id;
+            let itemInfo = data.filter(function(itm){
+                return itm.name==item.id;
+            })[0];
             item.quantity=cart[i].quantity;
-            //replace object population w crud calls
-            item.picture = cart[i].picture;
-            item.price = cart[i].price;
+            item.picture = itemInfo.imagepath;
+            item.price = itemInfo.price;
             totalPrice += item.price*item.quantity;
         }
 
@@ -100,10 +90,6 @@ const CartPage = (props) => {
                             <td class="">
                                 <p style={{textAlign:"right"}}><b>Subtotal:</b></p>
                                 <p style={{textAlign:"right"}}>${totalPrice.toFixed(2)}</p>
-
-                          
-                                {data.map(datas => <div>{datas.name}</div>)}
-                                {data[0].imagepath}
                             </td>
                             </tr>
                         </tbody>
