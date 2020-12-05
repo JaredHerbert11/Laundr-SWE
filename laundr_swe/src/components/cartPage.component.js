@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import {updateItem} from '../controllers/cartFunctions';
 import {useStatelocal} from '../controllers/cartFunctions';
 import coffeeImg from "../laundrassets/mockups/coffeeMockup.png";
@@ -8,11 +8,11 @@ import watermelonImg from "../laundrassets/mockups/watermelonMockup.png";
 import gardeniaImg from "../laundrassets/mockups/gardeniaMockup.png";
 import teakwoodImg from "../laundrassets/mockups/mahoganymockup.png";
 import CartItem from "./cartItem.component";
-import {getAllProducts} from '../controllers/productFunctions';
+import { getProducts } from '../controllers/productFunctions';
 import '../css/cartpage.css';
 
-//Tried getting all products and saving them to array but wouldnt take it
-//let retrievedProducts = getAllProducts();
+import { getData } from "../data/data.js";
+
 
 //replace hard coded entries with CRUD calls
 let Coffee = {
@@ -58,8 +58,6 @@ const CartPage = (props) => {
     let cartItems = [];
     let totalPrice = 0;
 
-   //let array = getAllProducts();
-
     //iterate over each item in the cart to calculate price and add CartItem component to array in order to be returned w the page
     for(let i = 0; i < cart.length;i++){
         let item = {
@@ -82,6 +80,7 @@ const CartPage = (props) => {
         );
     }
 
+    const [data] = useState(getData());
 
     return (
         <div className="bg">
@@ -99,6 +98,10 @@ const CartPage = (props) => {
                             <td class="">
                                 <p style={{textAlign:"right"}}><b>Subtotal:</b></p>
                                 <p style={{textAlign:"right"}}>${totalPrice.toFixed(2)}</p>
+
+                          
+                                {data.map(datas => <div>{datas.name}</div>)}
+                                {data[0].name}
                             </td>
                             </tr>
                         </tbody>
@@ -111,12 +114,6 @@ const CartPage = (props) => {
                 <button className="devButton" onClick={() => updateItem(cart, setCart, Watermelon, 1)}>Watermelon</button>
                 <button className="devButton" onClick={() => updateItem(cart, setCart, Gardenia, 1)}>Gardenia</button>
                 <button className="devButton" onClick={() => updateItem(cart, setCart, Teakwood, 1)}>Teakwood</button>
-                {/* <button className="devButton" onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, TeaTree, 1)}>TeaTree</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Air, 1)}>Air</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Watermelon, 1)}>Watermelon</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Gardenia, 1)}>Gardenia</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Teakwood, 1)}>Teakwood</button> */}
 
             </div>
         </div>
