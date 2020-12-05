@@ -16,7 +16,7 @@ import { getData } from "../data/data.js";
 
 //replace hard coded entries with CRUD calls
 let Coffee = {
-    id : "Watermelon Cucumber",
+    id : "Vanilla Coffee",
     quantity : 0,
     picture:coffeeImg,
     price:18.99
@@ -58,6 +58,8 @@ const CartPage = (props) => {
     let cartItems = [];
     let totalPrice = 0;
 
+    const [data] = useState(getData());
+
     //iterate over each item in the cart to calculate price and add CartItem component to array in order to be returned w the page
     for(let i = 0; i < cart.length;i++){
         let item = {
@@ -80,7 +82,7 @@ const CartPage = (props) => {
         );
     }
 
-    const [data] = useState(getData());
+    
 
     return (
         <div className="bg">
@@ -101,7 +103,7 @@ const CartPage = (props) => {
 
                           
                                 {data.map(datas => <div>{datas.name}</div>)}
-                                {data[0].name}
+                                {data[0].imagepath}
                             </td>
                             </tr>
                         </tbody>

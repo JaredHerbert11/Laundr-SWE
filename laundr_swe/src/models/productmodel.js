@@ -7,6 +7,7 @@ const productSchema = new mongoose.Schema({
     description: {type : String, required : true},
     type: {type : String, required : true},
     scent: {type : String, required : true},
+    price: {type : Number, required : true},
     hexcode: {type : String, required : true},
     imagepath:[String],
 
