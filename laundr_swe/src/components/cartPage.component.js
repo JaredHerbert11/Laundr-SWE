@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import {updateItem} from '../controllers/cartFunctions';
 import {useStatelocal} from '../controllers/cartFunctions';
-import coffeeImg from "../laundrassets/mockups/coffeeMockup.png";
-import teaTreeImg from "../laundrassets/mockups/eucalyptusMockup.png";
-import freshAirImg from "../laundrassets/mockups/freshair_asset.png";
-import watermelonImg from "../laundrassets/mockups/watermelonMockup.png";
-import gardeniaImg from "../laundrassets/mockups/gardeniaMockup.png";
-import teakwoodImg from "../laundrassets/mockups/mahoganymockup.png";
 import CartItem from "./cartItem.component";
-import { getProducts } from '../controllers/productFunctions';
 import '../css/cartpage.css';
 
 import { getData } from "../data/data.js";
