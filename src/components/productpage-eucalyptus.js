@@ -6,6 +6,7 @@ import React, { useEffect } from 'react'
 import bomb from "../laundrassets/bombs/Laundr\ Bomb\ Angle1.png"
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
