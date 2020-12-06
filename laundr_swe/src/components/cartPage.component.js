@@ -9,7 +9,7 @@ import { getData } from "../data/data.js";
 
 //replace hard coded entries with CRUD calls
 let Coffee = {
-    id : "Vanilla Coffee",
+    id : "Coffee Vanilla",
     quantity : 0,
 }
 let TeaTree = {
