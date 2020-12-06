@@ -13,7 +13,44 @@
   font-family: calmer;
   src: ('Calmer Regular.ttf');
 }
+@font-face{
+  font-family: Roboto;
+  src: ('../fonts/Roboto-Black.ttf');
+}
 #logo{
   width:200px;
   height: 80px;
+}
+#menu{
+  display: none;
+}
+
+.sidenav {
+  height: 100%;
+  font-family: Roboto;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  
+  font-size: 5vw;
+}
+.sidenav a{
+  color: black;
+  text-decoration: none;
+}
+
+@media (max-width: 575.98px) { 
+  #menu{
+    font-size:30px;
+    cursor:pointer;
+    margin: 1em;
+    display: inline;
+  }
+  .nav{
+    display: none;
+  }
+  /* .Navbar{
+    padding-top: 1em;
+  } */
+ 
 }
