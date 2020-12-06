@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 app.use(express.static('.'));
 
-const YOUR_DOMAIN = 'http://localhost:3000/cart';
+const YOUR_DOMAIN = 'http://localhost:3000/';
 
 app.use(express.json());
 app.use(express.urlencoded());
