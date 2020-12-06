@@ -13,7 +13,7 @@
 }
 .prodName{
     font-family: calmer;
-    font-size: 19vh;
+    font-size: 9vw;
     color: #01C9E1;
     padding: 0.5em;
     margin: 0;
@@ -24,14 +24,18 @@
 .bag1{
     position: absolute;
     z-index: 2000;
-    left: -15vh;
-    top: 20%;
-    font-size: 20px;
+    left: 15vw;
+    top: 20vh;
     transform: rotate(90deg);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     width: 50%;
+}
+.bomb{
+    position: fixed;
+    z-index: 2000;
+    width: 20%;
+    top:38vh;
+    left:45vw;
+
 }
 .description{
     padding: 2em;
@@ -73,5 +77,16 @@
  }
 .eucalyptus { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
  }
-
+ @media (max-width: 575.98px) { 
+    .bomb{
+        top:22vh;
+    }
+    .bag1{
+        left: 24.8vw;
+        top:18vh;
+    }
+    .prodName{
+        font-size: 6vmax;
+    }
+ }
  
