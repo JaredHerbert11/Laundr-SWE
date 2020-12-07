@@ -92,3 +92,6 @@
 .incrButton{
     border-radius: 0 10% 10% 0;
 }
+.checkout{
+    cursor: pointer;
+}
