@@ -5,8 +5,7 @@ import bodyParser from 'body-parser';
 import config from './config/config.js'
 import laundrProductRouter from './routes/products.js';
 import dotenv from 'dotenv';
-import Stripe from 'stripe';
-const stripe = new Stripe(process.env.STRIPE_KEY);
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 
 const __dirname = path.resolve();
