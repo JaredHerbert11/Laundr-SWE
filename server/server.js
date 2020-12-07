@@ -6,7 +6,7 @@ import config from './config/config.js'
 import laundrProductRouter from './routes/products.js';
 import dotenv from 'dotenv';
 import Stripe from 'stripe';
-const stripe = new Stripe(process.env.STRIPE_KEY);
+const stripe = new Stripe('sk_test_51Hq70OKgZ2mb9PjFfAt8APWMwwfKXLyszF3vTOaAuW3oVjZgio8JnBhZwhJIfqJhyI5jq2PfMoVKJdWIcY9Qbi2z005q5h0lmV');
 
 
 
@@ -28,6 +28,26 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(bodyParser.json());
+
+// Add headers
+app.use(function (req, res, next) {
+
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+  // Set to true if you need the website to include cookies in the requests sent
+  // to the API (e.g. in case you use sessions)
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  // Pass to next layer of middleware
+  next();
+});
 
 let YOUR_DOMAIN = 'http://localhost:3000/';
 

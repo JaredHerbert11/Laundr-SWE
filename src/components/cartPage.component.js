@@ -5,7 +5,7 @@ import CartItem from "./cartItem.component";
 import '../css/cartpage.css';
 import { getData } from "../data/data.js";
 import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+const stripePromise = loadStripe("pk_test_51Hq70OKgZ2mb9PjFiC3Lu08QdFO7jdKeXBgygGJtX430cjHCGfAStXav5DNOi657F54PXDTxEKGhJNtIZ3sj4wnm00amvC8n8T");
 
 const CartPage = (props) => {  
     let [cart, setCart] = useStatelocal();
@@ -41,7 +41,7 @@ const CartPage = (props) => {
     const handleClick = async (event) => {
         console.log("Click has been handled");
         const stripe = await stripePromise;
-        const response = await fetch("/create-session", {
+        const response = await fetch("http://localhost:5000/create-session", {
             method: "POST",
         });
           const session = await response.json();
