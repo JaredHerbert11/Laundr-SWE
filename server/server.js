@@ -4,23 +4,16 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import config from './config/config.js'
 import laundrProductRouter from './routes/products.js';
-import {connectToDatabase} from './connectMongodb.js';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
+import Stripe from 'stripe';
+const stripe = new Stripe(process.env.STRIPE_KEY);
+
 
 const __dirname = path.resolve();
 
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
-
-//connect to database
-const db = connectToDatabase().on(
-   "error",
-   console.error.bind(console, "MongoDB connection error:")
- );
- db.once("open", () => {
-   console.log("Successfully connected to mongoose database!");
- });
 
 //initialize app
 const app = express();
@@ -35,7 +28,31 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.use('/api/laundrProducts/', laundrProductRouter);
+let YOUR_DOMAIN = 'http://localhost:3000/';
+
+app.post('/create-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'Stubborn Attachments',
+            images: ['https://i.imgur.com/EHyR2nP.png'],
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}?success=true`,
+    cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+  });
+
+  res.json({ id: session.id });
+});
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files

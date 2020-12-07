@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {updateItem} from '../controllers/cartFunctions';
 import {useStatelocal} from '../controllers/cartFunctions';
 import CartItem from "./cartItem.component";
 import '../css/cartpage.css';
 import { getData } from "../data/data.js";
+import { loadStripe } from "@stripe/stripe-js";
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const CartPage = (props) => {  
     let [cart, setCart] = useStatelocal();
@@ -36,6 +38,36 @@ const CartPage = (props) => {
         );
     }
 
+    const handleClick = async (event) => {
+        console.log("Click has been handled");
+        const stripe = await stripePromise;
+        const response = await fetch("/create-session", {
+            method: "POST",
+        });
+          const session = await response.json();
+    
+        // When the customer clicks on the button, redirect them to Checkout.
+        const result = await stripe.redirectToCheckout({
+            sessionId: session.id,
+        });
+        if (result.error) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer
+            // using `result.error.message`.
+        }
+    };
+
+    useEffect(() => {
+        // Check to see if this is a redirect back from Checkout
+        const query = new URLSearchParams(window.location.search);
+        if (query.get("success")) {
+          console.log("Order was a success!")
+        }
+    
+        if (query.get("canceled")) {
+            console.log("Order was cancelled, when did god forsaken us?");
+        }
+      }, []);
 
     return (
         <div className="bg">
@@ -43,7 +75,7 @@ const CartPage = (props) => {
                 <div class="header">
                     <div className="top">
                         <span> Your Cart </span>
-                        <span> Proceed to Checkout </span>
+                        <p className="checkout" onClick={handleClick}> Proceed to Checkout </p>
                     </div>
                 </div>
                     <table class="ui celled collapsing very basic table" style={{minWidth : "700px"}}>

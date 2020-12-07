@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {clearOneItem} from '../controllers/cartFunctions'
 import {updateItem} from '../controllers/cartFunctions'
