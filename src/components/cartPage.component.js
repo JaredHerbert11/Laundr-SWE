@@ -1,59 +1,17 @@
-import React from 'react';
+import React, { useState } from "react";
 import {updateItem} from '../controllers/cartFunctions';
 import {useStatelocal} from '../controllers/cartFunctions';
-import coffeeImg from "../laundrassets/mockups/coffeeMockup.png";
-import teaTreeImg from "../laundrassets/mockups/eucalyptusMockup.png";
-import freshAirImg from "../laundrassets/mockups/freshair_asset.png";
-import watermelonImg from "../laundrassets/mockups/watermelonMockup.png";
-import gardeniaImg from "../laundrassets/mockups/gardeniaMockup.png";
-import teakwoodImg from "../laundrassets/mockups/mahoganymockup.png";
 import CartItem from "./cartItem.component";
 import '../css/cartpage.css';
-
-
-//replace hard coded entries with CRUD calls
-let Coffee = {
-    id : "Coffee Vanilla",
-    quantity : 0,
-    picture:coffeeImg,
-    price:18.99
-}
-let TeaTree = {
-    id : "Eucalyptus Tea Tree",
-    quantity : 0,
-    picture:teaTreeImg,
-    price:18.99
-}
-let Air = {
-    id : "Fresh Air",
-    quantity : 0,
-    picture:freshAirImg,
-    price:18.99
-}
-let Watermelon = {
-    id : "Watermelon Cucumber",
-    quantity : 0,
-    picture:watermelonImg,
-    price:18.99
-}
-let Gardenia = {
-    id : "White Gardenia",
-    quantity : 0,
-    picture:gardeniaImg,
-    price:18.99
-}
-let Teakwood = {
-    id : "Mahogany Teakwood",
-    quantity : 0,
-    picture:teakwoodImg,
-    price:18.99
-}
-
+import { getData } from "../data/data.js";
 
 const CartPage = (props) => {  
     let [cart, setCart] = useStatelocal();
     let cartItems = [];
     let totalPrice = 0;
+
+    const [data] = useState(getData());
+
     //iterate over each item in the cart to calculate price and add CartItem component to array in order to be returned w the page
     for(let i = 0; i < cart.length;i++){
         let item = {
@@ -64,10 +22,12 @@ const CartPage = (props) => {
         }
         if (typeof cart[i] != 'undefined'){
             item.id=cart[i].id;
+            let itemInfo = data.filter(function(itm){
+                return itm.name==item.id;
+            })[0];
             item.quantity=cart[i].quantity;
-            //replace object population w crud calls
-            item.picture = cart[i].picture;
-            item.price = cart[i].price;
+            item.picture = itemInfo.imagepath;
+            item.price = itemInfo.price;
             totalPrice += item.price*item.quantity;
         }
 
@@ -97,15 +57,6 @@ const CartPage = (props) => {
                             </tr>
                         </tbody>
                     </table>
-            </div>
-            <div className="row">
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Coffee, 1)}>Coffee</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, TeaTree, 1)}>TeaTree</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Air, 1)}>Air</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Watermelon, 1)}>Watermelon</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Gardenia, 1)}>Gardenia</button>
-                <button className="devButton" onClick={() => updateItem(cart, setCart, Teakwood, 1)}>Teakwood</button>
-
             </div>
         </div>
     )
