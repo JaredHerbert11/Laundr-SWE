@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import '../css/landingpage.css'
@@ -6,7 +6,7 @@ const LandingPage = (props) => {
     const colorArray = ["#ff5656", "#f4ea9c", "#5b5b5b", "#8dcfdd",  "#e2cea3", "#48c47e"]
 
     window.addEventListener('scroll', () => {
-        if (window.location.href == 'http://localhost:3000/') {
+        if (window.location.href === 'http://localhost:3000/') {
             const colorbar = document.querySelector('.color-bar');
             let secNumber = Math.floor(window.pageYOffset/window.innerHeight);
             console.log(secNumber);
