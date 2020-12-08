@@ -33,8 +33,6 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-let YOUR_DOMAIN = 'http://localhost:3000/';
-
 app.post('/create-session', async (req, res) => {
   let item = [];
   for (let i = 0; i < req.body.length; i++){
@@ -55,8 +53,8 @@ app.post('/create-session', async (req, res) => {
     payment_method_types: ['card'],
     line_items: item,
     mode: 'payment',
-    success_url: `${YOUR_DOMAIN}?success=true`,
-    cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+    success_url: `${process.env.YOUR_DOMAIN}?success=true`,
+    cancel_url: `${process.env.YOUR_DOMAIN}?canceled=true`,
   });
 
   res.json({ id: session.id });
