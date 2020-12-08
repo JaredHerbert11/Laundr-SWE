@@ -1,11 +1,13 @@
 import path from 'path';
+import { getData } from '../src/data/data.js'
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-import config from './config/config.js'
-import laundrProductRouter from './routes/products.js';
-import {connectToDatabase} from './connectMongodb.js';
-import dotenv from 'dotenv'
+import config from './config/config.js';
+import dotenv from 'dotenv';
+import Stripe from 'stripe';
+import cors from 'cors';
+
 
 const __dirname = path.resolve();
 
@@ -13,17 +15,13 @@ if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
 
-//connect to database
-const db = connectToDatabase().on(
-   "error",
-   console.error.bind(console, "MongoDB connection error:")
- );
- db.once("open", () => {
-   console.log("Successfully connected to mongoose database!");
- });
+const stripe = new Stripe(process.env.STRIPE_KEY_SEC);
 
 //initialize app
 const app = express();
+
+// Add headers
+app.use(cors());
 
 //enable request logging for development debugging
 app.use(morgan('dev'));
@@ -35,7 +33,34 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.use('/api/laundrProducts/', laundrProductRouter);
+let YOUR_DOMAIN = 'http://localhost:3000/';
+
+app.post('/create-session', async (req, res) => {
+  let item = [];
+  for (let i = 0; i < req.body.length; i++){
+    let temp = {
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: req.body[i].id,
+          images: ['https://i.imgur.com/y0Xntmz.jpg'],
+        },
+        unit_amount: 3000,
+      },
+      quantity: req.body[i].quantity,
+    }
+    item.push(temp);
+  }
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: item,
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}?success=true`,
+    cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+  });
+
+  res.json({ id: session.id });
+});
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
