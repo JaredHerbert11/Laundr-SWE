@@ -9,6 +9,7 @@ import logo from '../laundrassets/logos/logo2.png'
 import {Link} from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {useStatelocal} from '../controllers/cartFunctions';
 
 const NavBar = () => {
     const [open, setOpen] = React.useState(false);
@@ -28,6 +29,7 @@ const NavBar = () => {
         ...theme.mixins.toolbar,
         justifyContent: 'flex-start',
     }
+    let [cart, setCart] = useStatelocal();
     return(
         <div className='Navbar'>
             <Grid container spacing={3}>
@@ -40,7 +42,10 @@ const NavBar = () => {
                 <Grid item xs style={{display: "flex", justifyContent: "center", alignItems: "center", paddingRight: 0}}>
                         <div className="nav">
                             <Link to="/">Home </Link>
-                            <Link to="/cart" ><ShoppingCartIcon color="black"  /></Link>
+                            <Link to="/cart" >
+                                <ShoppingCartIcon color="black"  />
+                                <span class='badge badge-warning' id='lblCartCount'> {cart.length} </span>
+                            </Link>
                            
                         </div>
                         <MenuIcon id="menu" onClick={handleDrawerOpen}></MenuIcon>
