@@ -6,7 +6,7 @@
     "test": "mocha server/tests",
     "client": "react-scripts start",
     "server": "nodemon server/server.js",
-    "dev": "concurrently \"nodemon server/server.js\" \"react-scripts start\"",
+    "dev": "concurrently \"nodemon --experimental-json-modules server/server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "start": "node server/server.js"
   },

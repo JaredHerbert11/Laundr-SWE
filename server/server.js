@@ -1,14 +1,12 @@
 import path from 'path';
+import { getData } from '../src/data/data.js'
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import config from './config/config.js';
-import { getData } from '../src/data';
 import dotenv from 'dotenv';
 import Stripe from 'stripe';
 import cors from 'cors';
-const stripe = new Stripe('sk_test_51Hq70OKgZ2mb9PjFfAt8APWMwwfKXLyszF3vTOaAuW3oVjZgio8JnBhZwhJIfqJhyI5jq2PfMoVKJdWIcY9Qbi2z005q5h0lmV');
-
 
 
 const __dirname = path.resolve();
@@ -16,6 +14,8 @@ const __dirname = path.resolve();
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
+
+const stripe = new Stripe(process.env.STRIPE_KEY_SEC);
 
 //initialize app
 const app = express();
@@ -36,7 +36,6 @@ app.use(bodyParser.json());
 let YOUR_DOMAIN = 'http://localhost:3000/';
 
 app.post('/create-session', async (req, res) => {
-  console.log(req.body);
   let item = [];
   for (let i = 0; i < req.body.length; i++){
     let temp = {
