@@ -46,8 +46,8 @@ const FreshAir = () =>{
                         
             <Grid container spacing={2}>
                 <Grid item xs sm={6}>
-                    <h1 className="prodName">FRESH</h1>
-                    <h1 className="prodName">AIR</h1>
+                    <h1 className="prodName prodNameSm">FRESH</h1>
+                    <h1 className="prodName prodNameSm">AIR</h1>
                 </Grid>
                 <Grid item xs sm={6} className="cart">
                     <div className="cart-price">

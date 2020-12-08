@@ -46,8 +46,8 @@ const Vanilla = ()=>{
                             
                 <Grid container spacing={2}>
                     <Grid item xs sm={6}>
-                        <h1 className="prodName">COFFEE</h1>
-                        <h1 className="prodName">VANILLA</h1>
+                        <h1 className="prodName prodNameSm">COFFEE</h1>
+                        <h1 className="prodName prodNameSm">VANILLA</h1>
                     </Grid>
                     <Grid item xs sm={6} className="cart">
                     <div className="cart-price">

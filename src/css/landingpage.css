@@ -3,15 +3,18 @@
     src: ('../fonts/Roboto-Black.ttf');
 }
 html {
+    
     scroll-snap-type: y mandatory;
+    scroll-padding: 10vh;
+    overflow-x: hidden;
 }
 .scroll-snap-section {
     height: 100vh;
-    
     width: 100vw;
 
     scroll-snap-align: start;
 }
+
 .bg-image {
     /* Full height */
     height: 50%;
@@ -24,18 +27,47 @@ html {
 }
 
 /* Images used */
-.img1 { background-image: url(../laundrassets/tessalations/watermelon_pattern.png); 
-        height: 100vh; }
-.img2 { background-image: url(../laundrassets/tessalations/gardenia_pattern.png); 
-        height: 100vh; }
-.img3 { background-image: url(../laundrassets/tessalations/mahogany_pattern.png); 
-    height: 100vh; }
-.img4 { background-image: url(../laundrassets/tessalations/freshair_pattern.png); 
-    height: 100vh; }
-.img5 { background-image: url(../laundrassets/tessalations/vanilla_pattern.png); 
-    height: 100vh; }
-.img6 { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
-    height: 100vh; }
+.img1 { 
+    background-image: url(../laundrassets/tessalations/watermelon_pattern.png)  ; 
+    background-position: 0px 0px;
+    height: 100vh;
+    animation: animatedBackground 20s linear infinite alternate; 
+}
+.img2 { 
+    background-image: url(../laundrassets/tessalations/gardenia_pattern.png); 
+    height: 100vh;
+    background-position: 0px 0px;
+    animation: animatedBackground 20s linear infinite alternate;
+ }
+.img3 { 
+    background-image: url(../laundrassets/tessalations/mahogany_pattern.png); 
+    height: 100vh;
+    background-position: 0px 0px;
+    animation: animatedBackground 20s linear infinite alternate; 
+}
+.img4 { 
+    background-image: url(../laundrassets/tessalations/freshair_pattern.png); 
+    height: 100vh; 
+    background-position: 0px 0px;
+    animation: animatedBackground 20s linear infinite alternate;
+}
+.img5 { 
+    background-image: url(../laundrassets/tessalations/vanilla_pattern.png); 
+    height: 100vh;
+    background-position: 0px 0px;
+    animation: animatedBackground 20s linear infinite alternate; 
+}
+.img6 { 
+    background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
+    height: 100vh; 
+    background-position: 0px 0px;
+    animation: animatedBackground 20s linear infinite alternate;
+}
+
+    @keyframes animatedBackground {
+        from { background-position: 0 0; }
+        to { background-position: 0px -300px; }
+    }
 
 .mockup-image {
     /* Full height */
@@ -71,117 +103,150 @@ height: 100vh; }
     z-index: 0;
 }
 
-/* img {
-    position: relative;
-    z-index: 1000;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  } */
-
 .bombDesc1 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 25%;
+    top: 22%;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .bombDesc2 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 127%;
+    top: 122%;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    color: gray;
 }
 
 .bombDesc3 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 229%;
+    top: 223%;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .bombDesc4 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 331%;
+    top: 323%;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
-
+.description-l{
+    left: 65vw;
+}
 .bombDesc5 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 433%;
+    top: 424%;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .bombDesc6 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 535%;
+    top: 523%;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .bombName1 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 20%;
+    padding-top: 90px;
+    top: 17%;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .bombName2 {
     position: absolute;
     z-index: 2000;
+    padding-top: 90px;
     padding-left: 50px;
-    top: 122%;
+    top: 117%;
     font-family: 'Roboto', sans-serif;
+    color: gray;
 }
 
 .bombName3 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 224%;
+    padding-top: 90px;
+    top: 219%;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .bombName4 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 326%;
+    padding-top: 90px;
+    top: 319%;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .bombName5 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 428%;
+    padding-top: 90px;
+    top: 420%;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .bombName6 {
     position: absolute;
     z-index: 2000;
     padding-left: 50px;
-    top: 530%;
+    padding-top: 90px;
+    top: 518%;
     font-family: 'Roboto', sans-serif;
+    color: white;
 }
 .li-landing-page {
     background: none;
     right: 10%;
+}
+
+@media (max-width: 575.98px) { 
+    .description-l{
+        display: none !important;
+    }
+    .mimg1,.mimg2,.mimg3,.mimg4,.mimg5,.mimg6{
+        background-size:100%;
+    }
+    .bombName1,.bombName2,.bombName3,.bombName4,.bombName5,.bombName6{
+        padding-top: 40%;
+    }
+    .bombDesc1,.bombDesc2,.bombDesc3,.bombDesc4,.bombDesc5,.bombDesc6{
+        padding-top: 20%;
+    }
+    .html{
+        scroll-padding-top: none;
+        overflow-x: hidden;
+    }
+    body{
+        padding-top: 80px;
+    }
 }

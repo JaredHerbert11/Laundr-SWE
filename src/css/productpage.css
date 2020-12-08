@@ -1,4 +1,6 @@
-
+html{
+    overflow-x: hidden;
+}
 @font-face{
     font-family: calmer;
     src: ('../fonts/Calmer Regular.ttf');
@@ -9,7 +11,14 @@
 }
 .watermelon{
     background-image: url(../laundrassets/tessalations/watermelon_pattern.png); 
-    background-repeat: repeat-x;
+    
+    background-position: 0px 0px;
+    
+    animation: animatedBackground 20s linear infinite alternate; 
+}
+@keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 0px -300px; }
 }
 .prodName{
     font-family: calmer;
@@ -21,6 +30,7 @@
     font-weight: bold;
     text-shadow: 2px 2px black;
 }
+
 .bag1{
     position: absolute;
     z-index: 2000;
@@ -39,6 +49,7 @@
 }
 .description{
     padding: 2em;
+    width: 100%!important;
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
@@ -66,27 +77,50 @@
 .cart-price{
     margin: 15px;
 }
-.gardenia { background-image: url(../laundrassets/tessalations/gardenia_pattern.png); 
+.gardenia { 
+    background-image: url(../laundrassets/tessalations/gardenia_pattern.png);
+    background-position: 0px 0px;
+    
+    animation: animatedBackground 20s linear infinite alternate; 
  }
-.mahogany { background-image: url(../laundrassets/tessalations/mahogany_pattern.png); 
+.mahogany { background-image: url(../laundrassets/tessalations/mahogany_pattern.png);
+    background-position: 0px 0px;
+    
+    animation: animatedBackground 20s linear infinite alternate;  
  }
 .freshair { background-image: url(../laundrassets/tessalations/freshair_pattern.png); 
-  background-size:50%;
+    background-position: 0px 0px;
+    
+    animation: animatedBackground 20s linear infinite alternate; 
+  background-size:80%;
 }
-.vanilla { background-image: url(../laundrassets/tessalations/vanilla_pattern.png); 
+.vanilla { background-image: url(../laundrassets/tessalations/vanilla_pattern.png);
+    background-position: 0px 0px;
+    
+    animation: animatedBackground 20s linear infinite alternate; 
  }
-.eucalyptus { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png); 
+.eucalyptus { background-image: url(../laundrassets/tessalations/eucalyptus_pattern.png);
+    background-position: 0px 0px;
+  
+    animation: animatedBackground 20s linear infinite alternate;  
  }
  @media (max-width: 575.98px) { 
     .bomb{
-        top:22vh;
+        top:18vh;
     }
     .bag1{
-        left: 24.8vw;
-        top:18vh;
+        left: 0vw;
+        top:12vh;
+        width: 70%;
     }
     .prodName{
         font-size: 6vmax;
+    }
+    .prodNameSm{
+        font-size: 9vmax;
+    }
+    .product{
+        padding-top: 10px;
     }
  }
  
