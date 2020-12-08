@@ -2,10 +2,11 @@ import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-import config from './config/config.js'
-import laundrProductRouter from './routes/products.js';
+import config from './config/config.js';
+import { getData } from '../src/data';
 import dotenv from 'dotenv';
 import Stripe from 'stripe';
+import cors from 'cors';
 const stripe = new Stripe('sk_test_51Hq70OKgZ2mb9PjFfAt8APWMwwfKXLyszF3vTOaAuW3oVjZgio8JnBhZwhJIfqJhyI5jq2PfMoVKJdWIcY9Qbi2z005q5h0lmV');
 
 
@@ -19,6 +20,9 @@ if (process.env.NODE_ENV !== 'production') {
 //initialize app
 const app = express();
 
+// Add headers
+app.use(cors());
+
 //enable request logging for development debugging
 app.use(morgan('dev'));
 
@@ -29,44 +33,28 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-// Add headers
-app.use(function (req, res, next) {
-
-  // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-
-  // Request methods you wish to allow
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-  // Request headers you wish to allow
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-  // Set to true if you need the website to include cookies in the requests sent
-  // to the API (e.g. in case you use sessions)
-  res.setHeader('Access-Control-Allow-Credentials', true);
-
-  // Pass to next layer of middleware
-  next();
-});
-
 let YOUR_DOMAIN = 'http://localhost:3000/';
 
 app.post('/create-session', async (req, res) => {
+  console.log(req.body);
+  let item = [];
+  for (let i = 0; i < req.body.length; i++){
+    let temp = {
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: req.body[i].id,
+          images: ['https://i.imgur.com/y0Xntmz.jpg'],
+        },
+        unit_amount: 3000,
+      },
+      quantity: req.body[i].quantity,
+    }
+    item.push(temp);
+  }
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
-    line_items: [
-      {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: 'Stubborn Attachments',
-            images: ['https://i.imgur.com/EHyR2nP.png'],
-          },
-          unit_amount: 2000,
-        },
-        quantity: 1,
-      },
-    ],
+    line_items: item,
     mode: 'payment',
     success_url: `${YOUR_DOMAIN}?success=true`,
     cancel_url: `${YOUR_DOMAIN}?canceled=true`,

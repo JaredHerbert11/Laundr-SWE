@@ -41,8 +41,13 @@ const CartPage = (props) => {
     const handleClick = async (event) => {
         console.log("Click has been handled");
         const stripe = await stripePromise;
+        let stringCart = JSON.stringify(cart);
         const response = await fetch("http://localhost:5000/create-session", {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: stringCart
         });
           const session = await response.json();
     
@@ -51,9 +56,7 @@ const CartPage = (props) => {
             sessionId: session.id,
         });
         if (result.error) {
-            // If `redirectToCheckout` fails due to a browser or network
-            // error, display the localized error message to your customer
-            // using `result.error.message`.
+            console.log(result.error.message);
         }
     };
 
