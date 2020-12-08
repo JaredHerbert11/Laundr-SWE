@@ -1,5 +1,4 @@
 import path from 'path';
-import { getData } from '../src/data/data.js'
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
