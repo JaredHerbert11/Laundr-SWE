@@ -87,7 +87,7 @@ const CartPage = (props) => {
                             <tr class="">
                             <td class="">
                                 <p style={{textAlign:"right"}}><b>Subtotal:</b></p>
-                                <p style={{textAlign:"right"}}>${totalPrice.toFixed(2)}</p>
+                                <p style={{textAlign:"right"}}>${(totalPrice/100).toFixed(2)}</p>
                             </td>
                             </tr>
                         </tbody>
