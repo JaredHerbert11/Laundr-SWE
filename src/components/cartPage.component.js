@@ -42,7 +42,7 @@ const CartPage = (props) => {
     const handleClick = async (event) => {
         const stripe = await stripePromise;
         let stringCart = JSON.stringify(cart);
-        const response = await fetch("http://localhost:5000/create-session", {
+        const response = await fetch("https://laundr-swe-app.herokuapp.com/create-session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

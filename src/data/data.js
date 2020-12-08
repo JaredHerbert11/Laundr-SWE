@@ -1,4 +1,4 @@
-import products from './products.json'
+import products from './products.js'
 
 const getData = () => {
   let all_products = [];
