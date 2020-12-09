@@ -13,14 +13,7 @@ import ScrollSnap from "scroll-snap";
 const LandingPage = (props) => {
     
     const colorArray = ["#ff5656", "#f4ea9c", "#5b5b5b", "#8dcfdd",  "#e2cea3", "#48c47e"]
-    // const container1 = document.querySelector('#container');
-    // var listener = function() {
-    //     const colorbar = document.querySelector('.color-bar');
-    //     let secNumber = Math.floor(document.querySelector('#container').pageYOffset/document.querySelector('#container').innerHeight);
-    //     console.log(secNumber);
-    //     colorbar.style.backgroundColor = colorArray[secNumber];
-        
-    // };
+
     
     function callback() {
         console.log("snapped");
@@ -65,11 +58,7 @@ const LandingPage = (props) => {
     useEffect(() => {   
         
         bindScrollSnap();
-        // document.querySelector('#container').addEventListener('scroll', listener);
-    
-        // return () => {
-        //     document.querySelector('#container').removeEventListener('scroll', listener);
-        // };
+       
       }, []);
     
 
