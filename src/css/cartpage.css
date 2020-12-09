@@ -1,6 +1,6 @@
 .bg {
-    background:linear-gradient(rgb(216, 249, 255),transparent);
-    background-color: rgb(161, 235, 255);
+    background:linear-gradient(rgb(246, 254, 255),transparent);
+    background-color: rgb(177, 238, 255);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
