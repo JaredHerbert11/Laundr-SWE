@@ -7,10 +7,19 @@ import "../css/productpage.css"
 import bomb from "../laundrassets/bombs/Laundr\ Bomb\ Angle1.png"
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {useStatelocal} from '../controllers/cartFunctions';
+import {updateItem} from '../controllers/cartFunctions';
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
-
+function refreshPage() {
+    window.location.reload(false);
+}
 const Gardenia = (props) =>{
+    let [cart, setCart] = useStatelocal();
+    let productObj = {
+        id : "White Gardenia",
+        quantity : 0,
+    }
 
     useEffect(() => {
  
@@ -55,7 +64,7 @@ const Gardenia = (props) =>{
                 <Grid item xs sm={6} className="cart">
                     <div className="cart-price">
                         <div className="cart-price">Price: $18.99</div>
-                        <Button variant="contained" color="secondary">Add to Cart</Button>
+                        <Button variant="contained" color="secondary" onClick={() => {updateItem(cart, setCart, productObj, 1);refreshPage();}}>Add to Cart</Button>
                     </div>
                 </Grid> 
             </Grid>

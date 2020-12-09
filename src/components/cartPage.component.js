@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import {updateItem} from '../controllers/cartFunctions';
+import React, { useState } from "react";
 import {useStatelocal} from '../controllers/cartFunctions';
 import CartItem from "./cartItem.component";
 import '../css/cartpage.css';

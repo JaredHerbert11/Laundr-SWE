@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 //import Navbar from 'react-bootstrap/Navbar'
 import '../css/navbar.css'
 import Grid from '@material-ui/core/Grid';
@@ -9,6 +9,8 @@ import logo from '../laundrassets/logos/logo2.png'
 import {Link} from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {useStatelocal, useStatelocalNav, getCartQuantity} from '../controllers/cartFunctions';
+import {NavbarState} from '../controllers/navbarCartCounter';
 
 const NavBar = () => {
     const [open, setOpen] = React.useState(false);
@@ -28,6 +30,8 @@ const NavBar = () => {
         ...theme.mixins.toolbar,
         justifyContent: 'flex-start',
     }
+    let [cart, setCart] = useStatelocalNav();
+    let [cartQuantity, setCartQuantity] = NavbarState(cart);
     return(
         <div className='Navbar'>
             <Grid container spacing={3}>
@@ -40,7 +44,10 @@ const NavBar = () => {
                 <Grid item xs style={{display: "flex", justifyContent: "center", alignItems: "center", paddingRight: 0}}>
                         <div className="nav">
                             <Link to="/">Home </Link>
-                            <Link to="/cart" ><ShoppingCartIcon color="black"  /></Link>
+                            <Link to="/cart" >
+                                <ShoppingCartIcon color="black"  />
+                                <span class='badge badge-warning' id='lblCartCount'> {cartQuantity.quantity} </span>
+                            </Link>
                            
                         </div>
                         <MenuIcon id="menu" onClick={handleDrawerOpen}></MenuIcon>

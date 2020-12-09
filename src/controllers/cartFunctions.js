@@ -10,17 +10,43 @@ function useStatelocal() {
     if (cart.length > 0){
       let stringCart = JSON.stringify(cart);
       localStorage.setItem("cart", stringCart);
+      console.log("Updating localstorage to match old cart");
     }
 
     //If the cart is empty and local storage is not, then update cart to match local storage
     else if (localStorage.getItem("cart") !== "undefined" && localStorage.getItem("cart") !== null){
       let localStorageCart = localStorage.getItem("cart");
       let localStorageArray = JSON.parse(localStorageCart);
+      console.log("Cart is empty, so clearing local storage");
       setCart(localStorageArray);
     }
   }, [cart])
   return [cart, setCart];
 }
+
+function useStatelocalNav() {
+  //Cart state
+  let [cart, setCart] = useState([]);
+
+  //useEffect that runs whenever cart is changed
+  useEffect(() => {
+    //If the cart has been changed, and useEffect is called, update the local storage to match the cart
+    if (cart.length > 0){
+      let stringCart = JSON.stringify(cart);
+      console.log("I really just tried to mess with the local cart, I am a fool, but I couldn't");
+    }
+
+    //If the cart is empty and local storage is not, then update cart to match local storage
+    else if (localStorage.getItem("cart") !== "undefined" && localStorage.getItem("cart") !== null){
+      let localStorageCart = localStorage.getItem("cart");
+      let localStorageArray = JSON.parse(localStorageCart);
+      console.log("Icons are clearing localstorage");
+      setCart(localStorageArray);
+    }
+  }, [cart])
+  return [cart, setCart];
+}
+
 
 //When adding or removing one from cart, this function should be called 
 //amount is 1 or -1 depending on if the user wishes to add or remove one item from cart
@@ -57,7 +83,17 @@ function updateItem(cart, setCart, item, amount){
     setCart(cartCopy);
 
 }
-
+function getCartQuantity(cart){
+  let total = 0;
+  let cartCopy = [...cart];
+  for(let i = 0; i< cartCopy.length;i++){
+    total += cartCopy[i].quantity;
+  }
+  return total;
+}
+// function updateCartQuantity(cartQuantity, setCartQuantity){
+//   setCartQuantity({})
+// }
 
 function clearOneItem(cart, setCart, item){
     let cartCopy = [...cart];
@@ -74,8 +110,10 @@ function clearOneItem(cart, setCart, item){
 
 //Clears the cart as well as the local storage
 function clearCart(setCart) {
+    console.log("Clear cart called")
     localStorage.clear();
     setCart([]);
 }
 
-export {useStatelocal, updateItem, clearOneItem, clearCart};
+
+export {useStatelocal, updateItem, clearOneItem, clearCart,getCartQuantity, useStatelocalNav};
