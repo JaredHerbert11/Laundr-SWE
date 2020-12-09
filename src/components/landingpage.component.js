@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, } from 'react'
+import ReactDOM from 'react-dom'
 import { Link } from 'react-router-dom'
 import {useStatelocal} from '../controllers/cartFunctions';
 import {clearCart} from '../controllers/cartFunctions';

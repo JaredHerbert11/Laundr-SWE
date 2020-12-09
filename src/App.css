@@ -38,7 +38,7 @@
 }
 
 .Navbar {
-  position: sticky !important;
+  position: sticky;
   top: 0;
   z-index: 2500 !important;
   background-color: white;
