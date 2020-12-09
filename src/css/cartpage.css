@@ -10,6 +10,13 @@
 }
 .checkout{
     cursor: pointer;
+    background-color: #385d99;
+    border: none;
+    color: white;
+    padding: 2%;
+    text-align: center;
+    font-size: 16px;
+    border-radius:.5em;
 }
 .cartBox{
     border-radius: 2%;
