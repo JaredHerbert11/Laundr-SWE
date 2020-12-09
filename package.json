@@ -43,6 +43,7 @@
     "react-router-native": "^5.2.0",
     "react-scripts": "^4.0.1",
     "react-sticky": "^6.0.3",
+    "scroll-snap": "^3.1.0",
     "serve": "^11.3.2",
     "should": "^13.2.3",
     "supertest": "^6.0.1"

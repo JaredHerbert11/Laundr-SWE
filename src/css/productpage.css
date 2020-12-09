@@ -49,11 +49,11 @@ html{
 }
 .description{
     padding: 2em;
-    width: 100%!important;
+    width: 100% !important;
     display: flex;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
-
+    margin: 0;
 }
 .textBlock{
     margin: 1.5em;
@@ -122,5 +122,6 @@ html{
     .product{
         padding-top: 10px;
     }
+    
  }
  
