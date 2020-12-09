@@ -60,18 +60,6 @@ const CartPage = (props) => {
         }
     };
 
-    useEffect(() => {
-        // Check to see if this is a redirect back from Checkout
-        const query = new URLSearchParams(window.location.search);
-        if (query.get("success")) {
-          console.log("Order was a success!")
-        }
-    
-        if (query.get("canceled")) {
-            console.log("Order was cancelled, when did god forsaken us?");
-        }
-      }, []);
-
     return (
         <div className="bg">
             <div className="cartBox">
