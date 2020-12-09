@@ -42,7 +42,7 @@ const CartPage = (props) => {
     const handleClick = async (event) => {
         const stripe = await stripePromise;
         let stringCart = JSON.stringify(cart);
-        const response = await fetch("https://laundr-swe-app.herokuapp.com/create-session", {
+        const response = await fetch("http://localhost:5000/create-session", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -60,18 +60,6 @@ const CartPage = (props) => {
             console.log(result.error.message);
         }
     };
-
-    useEffect(() => {
-        // Check to see if this is a redirect back from Checkout
-        const query = new URLSearchParams(window.location.search);
-        if (query.get("success")) {
-          console.log("Order was a success!")
-        }
-    
-        if (query.get("canceled")) {
-            console.log("Order was cancelled, when did god forsaken us?");
-        }
-      }, []);
 
     return (
         <div className="bg">
