@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {clearOneItem} from '../controllers/cartFunctions'
 import {updateItem} from '../controllers/cartFunctions'
@@ -19,7 +18,7 @@ const CartItem = (props) => {
                     </div>
                     <div className="row">
                         <i class="dollar sign icon" style={{fontSize : "15px"}}></i>
-                        <p style={{fontSize : "25px"}}>${props.item.price.toFixed(2)}</p>
+                        <p style={{fontSize : "25px"}}>${props.item.price.toFixed(2)/100}</p>
                     </div>
                     <div>
                         <div className="incrementDecrement decrButton" onClick={() => updateItem(props.cart, props.setCart, props.item, -1)}> - </div>

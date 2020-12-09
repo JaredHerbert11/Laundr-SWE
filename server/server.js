@@ -2,10 +2,12 @@ import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-import config from './config/config.js'
-import laundrProductRouter from './routes/products.js';
-import {connectToDatabase} from './connectMongodb.js';
-import dotenv from 'dotenv'
+import config from './config/config.js';
+import dotenv from 'dotenv';
+import Stripe from 'stripe';
+import cors from 'cors';
+import { getData } from '../src/data/data.js';
+
 
 const __dirname = path.resolve();
 
@@ -13,17 +15,13 @@ if (process.env.NODE_ENV !== 'production') {
   dotenv.config();
 }
 
-//connect to database
-const db = connectToDatabase().on(
-   "error",
-   console.error.bind(console, "MongoDB connection error:")
- );
- db.once("open", () => {
-   console.log("Successfully connected to mongoose database!");
- });
+const stripe = new Stripe(process.env.STRIPE_KEY_SEC);
 
 //initialize app
 const app = express();
+
+// Add headers
+app.use(cors());
 
 //enable request logging for development debugging
 app.use(morgan('dev'));
@@ -35,7 +33,35 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.use('/api/laundrProducts/', laundrProductRouter);
+app.post('/create-session', async (req, res) => {
+  let cart = [];
+  let tome = getData();
+  for (let i = 0; i < req.body.length; i++){
+    let item = tome.find(product => product.name === req.body[i].id)
+    console.log(item.imageURL);
+    let temp = {
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: item.name,
+          images: [item.imageURL],
+        },
+        unit_amount: item.price,
+      },
+      quantity: req.body[i].quantity,
+    }
+    cart.push(temp);
+  }
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: cart,
+    mode: 'payment',
+    success_url: `${process.env.YOUR_DOMAIN}?success=true`,
+    cancel_url: `${process.env.YOUR_DOMAIN}?canceled=true`,
+  });
+
+  res.json({ id: session.id });
+});
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files

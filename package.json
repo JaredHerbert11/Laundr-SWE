@@ -6,7 +6,7 @@
     "test": "mocha server/tests",
     "client": "react-scripts start",
     "server": "nodemon server/server.js",
-    "dev": "concurrently \"nodemon server/server.js\" \"react-scripts start\"",
+    "dev": "concurrently \"nodemon --experimental-json-modules server/server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "start": "node server/server.js"
   },
@@ -17,6 +17,8 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.11.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -24,6 +26,7 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.3",
     "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "gsap": "^3.5.1",
@@ -45,6 +48,7 @@
     "react-sticky": "^6.0.3",
     "serve": "^11.3.2",
     "should": "^13.2.3",
+    "stripe": "^8.127.0",
     "supertest": "^6.0.1"
   },
   "eslintConfig": {

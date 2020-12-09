@@ -3,6 +3,9 @@ import {useStatelocal} from '../controllers/cartFunctions';
 import CartItem from "./cartItem.component";
 import '../css/cartpage.css';
 import { getData } from "../data/data.js";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe("pk_test_51Hq70OKgZ2mb9PjFiC3Lu08QdFO7jdKeXBgygGJtX430cjHCGfAStXav5DNOi657F54PXDTxEKGhJNtIZ3sj4wnm00amvC8n8T");
 
 const CartPage = (props) => {  
     let [cart, setCart] = useStatelocal();
@@ -35,6 +38,27 @@ const CartPage = (props) => {
         );
     }
 
+    const handleClick = async (event) => {
+        const stripe = await stripePromise;
+        let stringCart = JSON.stringify(cart);
+        const response = await fetch("http://localhost:5000/create-session", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: stringCart
+        });
+          const session = await response.json();
+    
+        // When the customer clicks on the button, redirect them to Checkout.
+        const result = await stripe.redirectToCheckout({
+            sessionId: session.id,
+        });
+        if (result.error) {
+            console.log(result.error.message);
+        }
+    };
 
     return (
         <div className="bg">
@@ -42,7 +66,7 @@ const CartPage = (props) => {
                 <div class="header">
                     <div className="top">
                         <span> Your Cart </span>
-                        <span> Proceed to Checkout </span>
+                        <p className="checkout" onClick={handleClick}> Proceed to Checkout </p>
                     </div>
                 </div>
                     <table class="ui celled collapsing very basic table" style={{minWidth : "700px"}}>
@@ -51,7 +75,7 @@ const CartPage = (props) => {
                             <tr class="">
                             <td class="">
                                 <p style={{textAlign:"right"}}><b>Subtotal:</b></p>
-                                <p style={{textAlign:"right"}}>${totalPrice.toFixed(2)}</p>
+                                <p style={{textAlign:"right"}}>${(totalPrice/100).toFixed(2)}</p>
                             </td>
                             </tr>
                         </tbody>
