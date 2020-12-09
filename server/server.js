@@ -2,7 +2,6 @@ import path from 'path';
 import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-import config from './config/config.js';
 import dotenv from 'dotenv';
 import Stripe from 'stripe';
 import cors from 'cors';
@@ -78,6 +77,6 @@ else {
  });
 }
 
-const port = process.env.PORT || config.port;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`App now listening on port ${port}`));
