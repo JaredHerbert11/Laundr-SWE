@@ -6,7 +6,6 @@ import config from './config/config.js';
 import dotenv from 'dotenv';
 import Stripe from 'stripe';
 import cors from 'cors';
-import { getData } from '../src/data/data.js';
 
 
 const __dirname = path.resolve();
@@ -34,27 +33,24 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.post('/create-session', async (req, res) => {
-  let cart = [];
-  let tome = getData();
+  let item = [];
   for (let i = 0; i < req.body.length; i++){
-    let item = tome.find(product => product.name === req.body[i].id)
-    console.log(item.imageURL);
     let temp = {
       price_data: {
         currency: 'usd',
         product_data: {
-          name: item.name,
-          images: [item.imageURL],
+          name: req.body[i].id,
+          images: ['https://i.imgur.com/y0Xntmz.jpg'],
         },
-        unit_amount: item.price,
+        unit_amount: 3000,
       },
       quantity: req.body[i].quantity,
     }
-    cart.push(temp);
+    item.push(temp);
   }
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
-    line_items: cart,
+    line_items: item,
     mode: 'payment',
     success_url: `${process.env.YOUR_DOMAIN}?success=true`,
     cancel_url: `${process.env.YOUR_DOMAIN}?canceled=true`,

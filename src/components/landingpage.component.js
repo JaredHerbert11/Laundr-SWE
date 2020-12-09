@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import {useStatelocal} from '../controllers/cartFunctions';
-import {clearCart} from '../controllers/cartFunctions';
 import axios from 'axios'
 import '../css/landingpage.css'
 const LandingPage = (props) => {
-    let [cart, setCart] = useStatelocal();
     const colorArray = ["#ff5656", "#f4ea9c", "#5b5b5b", "#8dcfdd",  "#e2cea3", "#48c47e"]
 
     window.addEventListener('scroll', () => {
@@ -16,19 +13,6 @@ const LandingPage = (props) => {
             colorbar.style.backgroundColor = colorArray[secNumber];
         }
     })
-
-    useEffect(() => {
-        // Check to see if this is a redirect back from Checkout
-        const query = new URLSearchParams(window.location.search);
-        if (query.get("success")) {
-          console.log("Order was a success!")
-          clearCart(setCart);
-        }
-    
-        if (query.get("canceled")) {
-            console.log("Order was cancelled, when did god forsaken us?");
-        }
-      }, []);
 
     return (
         <body>
