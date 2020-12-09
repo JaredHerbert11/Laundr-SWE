@@ -8,11 +8,14 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {useStatelocal} from '../controllers/cartFunctions';
 import {updateItem} from '../controllers/cartFunctions';
+
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
+
 function refreshPage() {
     window.location.reload(false);
 }
+
 const FreshAir = () =>{
     let [cart, setCart] = useStatelocal();
     let productObj = {

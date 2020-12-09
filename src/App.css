@@ -44,3 +44,9 @@
   background-color: white;
 }
 
+@media (max-width: 575.98px) { 
+  .Navbar {
+    position: fixed;
+    width: 100%;
+  }
+}
