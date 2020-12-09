@@ -9,7 +9,7 @@ import logo from '../laundrassets/logos/logo2.png'
 import {Link} from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import {useStatelocal,getCartQuantity} from '../controllers/cartFunctions';
+import {useStatelocal, useStatelocalNav, getCartQuantity} from '../controllers/cartFunctions';
 import {NavbarState} from '../controllers/navbarCartCounter';
 
 const NavBar = () => {
@@ -30,7 +30,7 @@ const NavBar = () => {
         ...theme.mixins.toolbar,
         justifyContent: 'flex-start',
     }
-    let [cart, setCart] = useStatelocal();
+    let [cart, setCart] = useStatelocalNav();
     let [cartQuantity, setCartQuantity] = NavbarState(cart);
     return(
         <div className='Navbar'>
