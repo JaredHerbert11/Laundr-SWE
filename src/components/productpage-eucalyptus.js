@@ -13,6 +13,11 @@ import {NavbarState} from '../controllers/navbarCartCounter';
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
+
+function refreshPage() {
+    window.location.reload(false);
+}
+
 const Eucalyptus = () =>{
     let [cart, setCart] = useStatelocal();
     let productObj = {
@@ -64,7 +69,7 @@ const Eucalyptus = () =>{
                     <Grid item xs sm={6} className="cart">
                         <div className="cart-price">
                             <div className="cart-price">Price: $18.99</div>
-                            <Button variant="contained" color="secondary" onClick={() => updateItem(cart, setCart, productObj, 1)}>Add to Cart</Button>
+                            <Button variant="contained" color="secondary" onClick={() => {updateItem(cart, setCart, productObj, 1);refreshPage();}}>Add to Cart</Button>
                         </div>
                     </Grid> 
                 </Grid>
