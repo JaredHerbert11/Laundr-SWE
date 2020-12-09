@@ -57,7 +57,17 @@ function updateItem(cart, setCart, item, amount){
     setCart(cartCopy);
 
 }
-
+function getCartQuantity(cart){
+  let total = 0;
+  let cartCopy = [...cart];
+  for(let i = 0; i< cartCopy.length;i++){
+    total += cartCopy[i].quantity;
+  }
+  return total;
+}
+// function updateCartQuantity(cartQuantity, setCartQuantity){
+//   setCartQuantity({})
+// }
 
 function clearOneItem(cart, setCart, item){
     let cartCopy = [...cart];
@@ -78,4 +88,5 @@ function clearCart(setCart) {
     setCart([]);
 }
 
-export {useStatelocal, updateItem, clearOneItem, clearCart};
+
+export {useStatelocal, updateItem, clearOneItem, clearCart,getCartQuantity};

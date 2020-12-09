@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {useStatelocal} from '../controllers/cartFunctions';
 import {updateItem} from '../controllers/cartFunctions';
+import {NavbarState} from '../controllers/navbarCartCounter';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
@@ -50,6 +51,7 @@ const Eucalyptus = () =>{
         });
  
     }, []);
+    let [cartQuantity, setCartQuantity] = NavbarState(cart);
     return (
         <div className="product">
             <div className="eucalyptus">
